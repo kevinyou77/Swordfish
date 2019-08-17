@@ -105,13 +105,11 @@ class GradeInteractor {
             return Observable<[GradeModel]>.create { [weak self] observers in
                 guard let self = self else { return Disposables.create() }
                 
-                DispatchQueue.main.async {
-                    let filteredGrades = self.filterGrades(for: scores, from: apiGradeModel)
-                    self.gradeRepository.saveGrade(grades: filteredGrades)
+                let filteredGrades = self.filterGrades(for: scores, from: apiGradeModel)
+                self.gradeRepository.saveGrade(grades: filteredGrades)
                     
-                    observers.onNext(scores)
-                    observers.onCompleted()
-                }
+                observers.onNext(scores)
+                observers.onCompleted()
                 
                 return Disposables.create()
             }

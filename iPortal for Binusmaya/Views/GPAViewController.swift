@@ -81,10 +81,9 @@ class GPAViewController: UIViewController, UITableViewDelegate {
     }
     
     @objc func onRefresh (_ sender: Any) {
-        self.gpaViewModel.sync { [weak self] res in
+        self.gpaViewModel.sync { [weak self] in
             guard let self = self else { return }
             
-            self.gradeModels.accept(res)
             self.rc.endRefreshing()
         }
     }
@@ -97,16 +96,13 @@ class GPAViewController: UIViewController, UITableViewDelegate {
         
         self.extendedLayoutIncludesOpaqueBars = true
         
-        self.gpaViewModel.getGPA { [weak self] event in
-            guard let self = self else { return }
-            
-            self.gradeModels.accept(event)
-        }
+        self.gpaViewModel.getGPA()
+        
         self.dataSource.titleForHeaderInSection = { dataSource, index in
             return self.dataSource.sectionModels[index].model
         }
         
-        self.gradeModels
+        self.gpaViewModel.gradeModels
             .bind (to: self.gpaTableView.rx.items(dataSource: dataSource))
             .disposed(by: self.disposeBag)
     }
