@@ -32,7 +32,6 @@ class GPAViewModel {
     
     func getGPA (onDataReceived: @escaping ([SectionModel<String, CourseGradeModel>]) -> ()) {
         let grades = self.gradeInteractor.getGradeSections()
-        self.gradeModels.accept(grades)
         
         /*
             I thought sorting through realm again to get last GPA is a bit overkill
