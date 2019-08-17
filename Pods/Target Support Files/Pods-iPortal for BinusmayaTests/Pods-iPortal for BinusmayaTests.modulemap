@@ -1,0 +1,6 @@
+framework module Pods_iPortal_for_BinusmayaTests {
+  umbrella header "Pods-iPortal for BinusmayaTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
