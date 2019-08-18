@@ -3,6 +3,8 @@
 # Swordfish - Better Binus Mobile
 A no BS Bimay client for iOS
 
+![Alt Text]()
+
 ## **What’s this?**
 
 A college companion app for Binus University students. You can see your upcoming schedules, GPAs, and billing information in this app.
