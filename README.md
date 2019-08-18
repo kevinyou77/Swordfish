@@ -3,7 +3,7 @@
 # Swordfish - Better Binus Mobile
 A no BS Bimay client for iOS
 
-![App demo](https://github.com/kevinyou77/Swordfish/blob/master/iPortal%20for%20Binusmaya/Demo/bbm-demo.gif)
+[**APP DEMO**](https://youtu.be/794d-_V5VeQ)
 
 ## **What’s this?**
 
