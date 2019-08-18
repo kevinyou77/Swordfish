@@ -34,12 +34,10 @@ class CourseInteractor {
                     return Observable<[CourseModel]>.create { [weak self] observers in
                         guard let self = self else { return Disposables.create() }
                         
-//                        DispatchQueue.main.async {
-                            self.scheduleRepository.saveSchedules(schedule: model)
-                            let sc = self.scheduleRepository.filterSchedules(with: model)
-                            observers.onNext(sc)
-                            observers.onCompleted()
-//                        }
+                        self.scheduleRepository.saveSchedules(schedule: model)
+                        let sc = self.scheduleRepository.filterSchedules(with: model)
+                        observers.onNext(sc)
+                        observers.onCompleted()
                         
                         return Disposables.create()
                     }

@@ -78,6 +78,7 @@ class LoginViewModel {
             
             return self.getFinancials()
         }
+        .take(1)
         .flatMap { [weak self] gpa -> Observable<[GradeModel]> in
             guard let self = self else { return Observable.empty() }
             
