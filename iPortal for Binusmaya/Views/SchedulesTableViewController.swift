@@ -97,7 +97,6 @@ class SchedulesTableViewController: UITableViewController {
         self.schedulesViewModel.getScheduleData { courses in
             self.courses.accept(courses)
         }
-        
     }
     
 
