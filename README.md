@@ -3,7 +3,7 @@
 # Swordfish - Better Binus Mobile
 A no BS Bimay client for iOS
 
-![App demo](https://github.com/kevinyou77/Swordfish/blob/master/iPortal%20for%20Binusmaya/Demo/bbm-demo.gif)
+[**APP DEMO**](https://youtu.be/794d-_V5VeQ)
 
 ## **What’s this?**
 
@@ -54,7 +54,7 @@ If you wanted to know your realm db location, just check the console. I’ve pri
 
 **Discovered a bug?** Bring up the issue. 
 **Ideas that would make this app better?** Open up a thread. 
-**Discovered a bug? Implemented a new feature?** Open a pull request and I’ll help to review it. 
+**Fixed a bug? Implemented a new feature?** Open a pull request and I’ll help to review it. 
 
 **I know that this application is miles away from perfect, and the codebase is probably going trigger PTSD for some software engineers out there, but I'm learning slowly.** This is also the first time I’m implementing design patterns in an application. I would love your feedbacks on the architectural pattern I’m implementing.
 As a way to start things off, I’m opening a few issues for this app. Have fun.
