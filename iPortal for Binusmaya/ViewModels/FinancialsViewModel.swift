@@ -17,12 +17,17 @@ class FinancialsViewModel {
     let financialInteractor: FinancialInteractor
     let authInteractor: AuthInteractor
     let disposeBag: DisposeBag
-    var financialModels =  BehaviorRelay<[FinancialModel]>(value: [])
+    var financialModels: BehaviorRelay<[FinancialModel]>
     
-    init () {
-        self.authInteractor = AuthInteractor()
-        self.financialInteractor = FinancialInteractor()
+    init (
+        financialInteractor: FinancialInteractor = FinancialInteractor(),
+        authInteractor: AuthInteractor = AuthInteractor(),
+        financialModels: BehaviorRelay<[FinancialModel]> = BehaviorRelay<[FinancialModel]>(value: [])
+    ) {
+        self.authInteractor = authInteractor
+        self.financialInteractor = financialInteractor
         self.disposeBag = DisposeBag()
+        self.financialModels = financialModels
     }
     
     func getFinancials (onDataReceived: @escaping ([FinancialModel]) -> ()) {

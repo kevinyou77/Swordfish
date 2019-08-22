@@ -37,25 +37,16 @@ struct Endpoints {
     }
 }
 
-class BimayApi {
+class BimayApi : BimayApiProtocol {
     static let endpoints = Endpoints()
 
     static func getIndexHtml() -> Observable<String> {
-        return Observable<String>.create { observer in
-            let task = URLSession.shared.dataTask(with: self.endpoints.login!) { (data, _, error) in
-                if let error = error {
-                    observer.onError(error)
-                    return
-                }
-                
-                let indexHtmlString = String(data: data!, encoding: .utf8)
-                observer.onNext(indexHtmlString!)
-                observer.on(.completed)
-            }
-            
-            task.resume()
-            
-            return Disposables.create { task.cancel() }
+        let url = self.endpoints.login!
+
+        return RxHelper.request(to: url, with: [:]) { (observer, data) in
+            let indexHtmlString = String(data: data, encoding: .utf8)
+            observer.onNext(indexHtmlString!)
+            observer.on(.completed)
         }
     }
     
@@ -103,30 +94,19 @@ class BimayApi {
     }
 
     static func getLoaderJs(withSerial serial: String?, cookies: String) -> Observable<String> {
-        let loaderPhp = endpoints.getLoaderPhp(withSerial: serial!)!
+        let url = endpoints.getLoaderPhp(withSerial: serial!)!
         
-        var request = URLRequest(url: loaderPhp)
-        request.setValue("https://binusmaya.binus.ac.id/login/", forHTTPHeaderField: "Referer")
-        request.setValue(cookies, forHTTPHeaderField: "Cookie")
-        request.setValue(
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
-            forHTTPHeaderField: "User-Agent"
-        )
+        let params = [
+            "Referer": "https://binusmaya.binus.ac.id/login/",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+            "Cookie": cookies
+        ]
         
-        return Observable<String>.create { observers in
-            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let error = error {
-                    observers.onError(error)
-                }
-                
-                let loaderJs = String(data: data!, encoding: .utf8)!
-                observers.onNext(loaderJs)
-                observers.on(.completed)
-            }
-            
-            task.resume()
-            return Disposables.create { task.cancel() }
+        return RxHelper.request(to: url, with: params) { (observers, data) in
+            observers.onNext(String(data: data, encoding: .utf8)!)
+            observers.onCompleted()
         }
+
     }
     
     static func getHiddenFieldsFromLoaderJs (from htmlString: String) -> [String: [String: String]]? {
@@ -210,48 +190,30 @@ class BimayApi {
             forHTTPHeaderField: "User-Agent"
         )
         
-        return Observable<Data>.create { observers in
-            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let error = error {
-                    observers.onError(error)
-                    return
-                }
-                
-                observers.onNext(data!)
-                observers.on(.completed)
-            }
-            
-            task.resume()
-            
-            return Disposables.create { task.cancel() }
+        let params = [
+            "Referer": "https://binusmaya.binus.ac.id/newStudent/index.html",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+            "Cookie": cookie
+        ]
+        
+        return RxHelper.request(to: url, with: params) { (observers, data) in
+            observers.onNext(data)
+            observers.onCompleted()
         }
     }
     
     static func getStudentPeriods(withCookie cookie: String) -> Observable<Data> {
         let url = self.endpoints.getStudentPeriods!
         
-        var request = URLRequest(url: url)
-        request.setValue(cookie, forHTTPHeaderField: "Cookie")
-        request.setValue("https://binusmaya.binus.ac.id/newStudent/index.html", forHTTPHeaderField: "Referer")
-        request.setValue(
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
-            forHTTPHeaderField: "User-Agent"
-        )
+        let params = [
+            "Referer": "https://binusmaya.binus.ac.id/newStudent/index.html",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+            "Cookie": cookie
+        ]
         
-        return Observable<Data>.create { observers in
-            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let error = error {
-                    observers.onError(error)
-                    return
-                }
-                
-                observers.onNext(data!)
-                observers.on(.completed)
-            }
-            
-            task.resume()
-            
-            return Disposables.create { task.cancel() }
+        return RxHelper.request(to: url, with: params) { (observers, data) in
+            observers.onNext(data)
+            observers.onCompleted()
         }
     }
     

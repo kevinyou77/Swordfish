@@ -13,8 +13,4 @@ class LoginFormModel : Codable {
     internal var password : [String: String] = [:]
     internal var login : [String: String] = [:]
     internal var hiddenFields : [String: String] = [:]
-    
-    init() {
-        
-    }
 }

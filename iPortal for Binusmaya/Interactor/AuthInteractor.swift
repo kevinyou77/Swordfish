@@ -14,14 +14,12 @@ import RxSwift
 import RxCocoa
 
 class AuthInteractor {
-    let endpoints: Endpoints
-    let disposeBag: DisposeBag
     let userRepository: UserRepository
     
-    init () {
-        endpoints = Endpoints()
-        userRepository = UserRepository()
-        disposeBag = DisposeBag()
+    init (
+        userRepository: UserRepository = UserRepository()
+    ) {
+        self.userRepository = userRepository
     }
     
     func constructLoginFormModel(username: String, password: String) -> Observable<Bool> {

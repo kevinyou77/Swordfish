@@ -173,22 +173,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		911CA2D822EF596000DC5348 /* network */ = {
+		911CA2D822EF596000DC5348 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				911CA2DA22EF65DA00DC5348 /* BimayApiProtocol.swift */,
 				911CA2DC22EF6D0F00DC5348 /* BimayApi.swift */,
 			);
-			path = network;
+			path = Network;
 			sourceTree = "<group>";
 		};
-		912AC22D22F088C50019C8C9 /* helpers */ = {
+		912AC22D22F088C50019C8C9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				912AC22E22F088D70019C8C9 /* StringHelper.swift */,
 				91F24A1E22FC815000D6C831 /* RxHelper.swift */,
 			);
-			path = helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		91560D9022FDDE89005B1D42 /* Extensions */ = {
@@ -214,7 +214,7 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		91A0C12522EF5738001DB92B /* entities */ = {
+		91A0C12522EF5738001DB92B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				911CA2D622EF57AC00DC5348 /* UserModel.swift */,
@@ -224,7 +224,7 @@
 				91C6BB21230163BC00EA5FEB /* GradeModel.swift */,
 				91833DC023041776002C84E5 /* FinancialModel.swift */,
 			);
-			path = entities;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		91C8B23722ECAF3D009DC08A = {
@@ -256,9 +256,9 @@
 				91D7187B22FD572E004DC47D /* ViewModels */,
 				91D7187922FD522E004DC47D /* Views */,
 				91F3912D22F9C9AF00D950A4 /* Repositories */,
-				912AC22D22F088C50019C8C9 /* helpers */,
-				911CA2D822EF596000DC5348 /* network */,
-				91A0C12522EF5738001DB92B /* entities */,
+				912AC22D22F088C50019C8C9 /* Helpers */,
+				911CA2D822EF596000DC5348 /* Network */,
+				91A0C12522EF5738001DB92B /* Entities */,
 				91A0C11F22EF2F3B001DB92B /* Interactor */,
 				91C8B24322ECAF3D009DC08A /* AppDelegate.swift */,
 				91C8B24522ECAF3D009DC08A /* ViewController.swift */,

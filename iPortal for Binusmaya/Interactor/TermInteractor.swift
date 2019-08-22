@@ -13,7 +13,13 @@ import Realm
 import RealmSwift
 
 class TermInteractor {
-    let termRepository = TermRepository()
+    let termRepository: TermRepository
+    
+    init (
+        termRepository: TermRepository = TermRepository()
+    ) {
+        self.termRepository = termRepository
+    }
     
     func getCurrentTerm (withCookie cookie: String) -> Observable<[TermModel]> {
         return BimayApi.getStudentPeriods(withCookie: cookie).flatMap { [weak self] event -> Observable<[TermModel]> in

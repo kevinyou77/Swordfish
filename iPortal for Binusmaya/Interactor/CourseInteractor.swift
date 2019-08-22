@@ -17,9 +17,12 @@ class CourseInteractor {
     let scheduleRepository: ScheduleRepository
     let termRepository: TermRepository
     
-    init () {
-        self.scheduleRepository = ScheduleRepository()
-        self.termRepository = TermRepository()
+    init (
+        scheduleRepository: ScheduleRepository = ScheduleRepository(),
+        termRepository: TermRepository = TermRepository()
+    ) {
+        self.scheduleRepository = scheduleRepository
+        self.termRepository = termRepository
     }
     
     func getAllSchedules (withTerm term : String, withCookie cookies : String) -> Observable<[CourseModel]> {

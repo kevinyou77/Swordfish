@@ -16,7 +16,11 @@ class GradeInteractor {
     let termRepository: TermRepository
     let userRepository: UserRepository
     
-    init () {
+    init (
+        gradeRepository: GradeRepository = GradeRepository(),
+        termRepository: TermRepository = TermRepository(),
+        userRepository: UserRepository = UserRepository()
+    ) {
         self.gradeRepository = GradeRepository()
         self.termRepository = TermRepository()
         self.userRepository = UserRepository()
