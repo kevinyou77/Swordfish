@@ -45,7 +45,7 @@ class FinancialsViewModel {
                 return self.financialInteractor.getAllFinancials(withCookie: newUser.cookie)
             }
             .observeOn(MainScheduler.instance)
-            .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .background))
+            .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .utility))
             .subscribe(onNext: { res in
                 self.getFinancials { model in
                     onDataReceived(model)

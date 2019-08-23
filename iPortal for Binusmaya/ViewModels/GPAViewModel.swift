@@ -58,7 +58,7 @@ class GPAViewModel {
                 return self.gradeInteractor.getAllGradesFromApi()
             }
             .observeOn(MainScheduler.instance)
-            .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .background))
+            .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .utility))
             .subscribe(onNext: { grades in
                 self.getGPA()
                 onDataReceived()

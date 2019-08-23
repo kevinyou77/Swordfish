@@ -65,7 +65,7 @@ class SchedulesViewModel {
                     }
                 }
                 .observeOn(MainScheduler.instance)
-                .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .background))
+                .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .utility))
                 .subscribe { event in
                     handler(self.scheduleSections())
                 }
