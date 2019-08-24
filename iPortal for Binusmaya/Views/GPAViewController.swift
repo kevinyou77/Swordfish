@@ -68,13 +68,12 @@ class GPAViewController: UIViewController, UITableViewDelegate {
     func setNavigationBarTitleToCurrentGPA () {
         let currentGPA = self.gpaViewModel.culmulativeGPA
         self.topNavigation.title = "GPA - \(currentGPA)"
-        
     }
     
     func configureRefreshControl () {
         self.rc.attributedTitle = NSAttributedString(string: "Fetching GPAs...", attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor.white
-            ])
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ])
         self.rc.tintColor = UIColor.white
         self.rc.addTarget(self, action: #selector(self.onRefresh(_:)), for: .valueChanged)
         self.gpaTableView.refreshControl = self.rc

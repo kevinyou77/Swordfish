@@ -10,7 +10,7 @@ import Foundation
 import SwiftSoup
 import RxSwift
 
-protocol BimayApiProtocol {
+public protocol BimayApiProtocol {
     static func getIndexHtml () -> Observable<String>
     static func getSerial(from document: Document) -> String?
     static func getIndexHtmlTokens(from htmlString: String) -> [String: String]?

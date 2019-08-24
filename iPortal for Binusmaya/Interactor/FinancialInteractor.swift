@@ -11,11 +11,13 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class FinancialInteractor {
+public class FinancialInteractor {
     let financialRepository: FinancialRepository
     
-    init () {
-        self.financialRepository = FinancialRepository()
+    init (
+        financialRepository: FinancialRepository = FinancialRepository()
+    ) {
+        self.financialRepository = financialRepository
     }
     
     func getAllFinancials (withCookie cookie: String) -> Observable<[FinancialModel]> {

@@ -11,7 +11,7 @@ import RealmSwift
 import RxCocoa
 import RxSwift
 
-class GradeRepository {
+public class GradeRepository {
     let disposeBag = DisposeBag()
     
     func saveGrades (grades: [GradeModel]) {

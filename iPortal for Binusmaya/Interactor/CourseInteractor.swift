@@ -13,7 +13,7 @@ import RealmSwift
 import Realm
 import RxDataSources
 
-class CourseInteractor {
+public class CourseInteractor {
     let scheduleRepository: ScheduleRepository
     let termRepository: TermRepository
     

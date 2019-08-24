@@ -12,7 +12,7 @@ import RxRealm
 import RxSwift
 import RxCocoa
 
-class TermRepository {
+public class TermRepository {
     let disposeBag = DisposeBag()
     
     func saveTerm (term: TermModel) {

@@ -18,6 +18,9 @@
 		914B316A2305502000744764 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B31692305502000744764 /* LoginViewModel.swift */; };
 		914F479422F01ECB00291BFA /* LoginFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F479322F01ECB00291BFA /* LoginFormModel.swift */; };
 		91560D9222FDDE9B005B1D42 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91560D9122FDDE9B005B1D42 /* RealmExtension.swift */; };
+		9158D5BC2311563000B300AE /* HasDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9158D5BB2311563000B300AE /* HasDependencies.swift */; };
+		9158D5BE2311566300B300AE /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9158D5BD2311566300B300AE /* Dependency.swift */; };
+		9158D5C023115B7D00B300AE /* CoreDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9158D5BF23115B7D00B300AE /* CoreDependency.swift */; };
 		916213F122ED8071007D4265 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916213F022ED8071007D4265 /* LoginViewController.swift */; };
 		91833DB72304164D002C84E5 /* FinancialsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91833DB62304164D002C84E5 /* FinancialsTableViewCell.swift */; };
 		91833DB923041668002C84E5 /* FinancialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91833DB823041668002C84E5 /* FinancialsViewController.swift */; };
@@ -89,6 +92,9 @@
 		914B31692305502000744764 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		914F479322F01ECB00291BFA /* LoginFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormModel.swift; sourceTree = "<group>"; };
 		91560D9122FDDE9B005B1D42 /* RealmExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
+		9158D5BB2311563000B300AE /* HasDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasDependencies.swift; sourceTree = "<group>"; };
+		9158D5BD2311566300B300AE /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
+		9158D5BF23115B7D00B300AE /* CoreDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDependency.swift; sourceTree = "<group>"; };
 		916213F022ED8071007D4265 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		91833DB62304164D002C84E5 /* FinancialsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsTableViewCell.swift; sourceTree = "<group>"; };
 		91833DB823041668002C84E5 /* FinancialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +208,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		9158D5BA231153BE00B300AE /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				9158D5BB2311563000B300AE /* HasDependencies.swift */,
+				9158D5BD2311566300B300AE /* Dependency.swift */,
+				9158D5BF23115B7D00B300AE /* CoreDependency.swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
 		91A0C11F22EF2F3B001DB92B /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +268,7 @@
 		91C8B24222ECAF3D009DC08A /* iPortal for Binusmaya */ = {
 			isa = PBXGroup;
 			children = (
+				9158D5BA231153BE00B300AE /* Dependencies */,
 				91560D9022FDDE89005B1D42 /* Extensions */,
 				91D7187B22FD572E004DC47D /* ViewModels */,
 				91D7187922FD522E004DC47D /* Views */,
@@ -605,8 +622,11 @@
 				91833DB923041668002C84E5 /* FinancialsViewController.swift in Sources */,
 				914B316A2305502000744764 /* LoginViewModel.swift in Sources */,
 				91281E3B2301CBBD001AFFDA /* GPATableViewCell.swift in Sources */,
+				9158D5BC2311563000B300AE /* HasDependencies.swift in Sources */,
 				916213F122ED8071007D4265 /* LoginViewController.swift in Sources */,
 				91D7187D22FD5765004DC47D /* SchedulesViewModel.swift in Sources */,
+				9158D5BE2311566300B300AE /* Dependency.swift in Sources */,
+				9158D5C023115B7D00B300AE /* CoreDependency.swift in Sources */,
 				91F3913322F9EB9A00D950A4 /* TermRepository.swift in Sources */,
 				91C6BB26230170DE00EA5FEB /* GPAViewModel.swift in Sources */,
 				91833DBF23041750002C84E5 /* FinancialRepository.swift in Sources */,

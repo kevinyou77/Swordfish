@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class GradeInteractor {
+public class GradeInteractor {
     let gradeRepository: GradeRepository
     let termRepository: TermRepository
     let userRepository: UserRepository

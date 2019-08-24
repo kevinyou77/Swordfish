@@ -13,7 +13,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class ScheduleRepository {
+public class ScheduleRepository {
     let disposeBag = DisposeBag()
     
     func saveSchedules (schedule: [CourseModel]) {

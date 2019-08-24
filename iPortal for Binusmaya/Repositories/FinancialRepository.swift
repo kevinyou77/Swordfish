@@ -12,7 +12,7 @@ import RxRealm
 import RxSwift
 import RxCocoa
 
-class FinancialRepository {
+public class FinancialRepository {
     let disposeBag = DisposeBag()
     
     func saveFinancials (financial: [FinancialModel]) {
