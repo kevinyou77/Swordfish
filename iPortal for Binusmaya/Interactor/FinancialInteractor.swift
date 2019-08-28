@@ -12,7 +12,7 @@ import RxCocoa
 import RxDataSources
 
 public class FinancialInteractor {
-    let financialRepository: FinancialRepository
+    private let financialRepository: FinancialRepository
     
     init (
         financialRepository: FinancialRepository = FinancialRepository()

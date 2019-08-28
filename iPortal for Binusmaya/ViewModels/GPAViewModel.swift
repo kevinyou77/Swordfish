@@ -14,22 +14,23 @@ import Realm
 import RxDataSources
 
 class GPAViewModel {
+    typealias Dependencies = HasAuth & HasGrade & HasTerm
     let gradeInteractor: GradeInteractor
     let termInteractor: TermInteractor
     let authInteractor: AuthInteractor
     let disposeBag: DisposeBag
     var gradeModels: BehaviorRelay<[SectionModel<String, CourseGradeModel>]>
     var culmulativeGPA: String
-    
-    init () {
-        self.gradeInteractor = GradeInteractor()
-        self.termInteractor = TermInteractor()
-        self.authInteractor = AuthInteractor()
+
+    init (dependencies: Dependencies) {
+        self.gradeInteractor = dependencies.gradeInteractor
+        self.termInteractor = dependencies.termInteractor
+        self.authInteractor = dependencies.authInteractor
         self.disposeBag = DisposeBag()
         self.gradeModels =  BehaviorRelay<[SectionModel<String, CourseGradeModel>]>(value: [])
         self.culmulativeGPA = ""
     }
-    
+
     func getGPA () {
         let grades = self.gradeInteractor.getGradeSections()
         self.gradeModels.accept(grades)

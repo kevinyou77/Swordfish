@@ -17,7 +17,10 @@ class SchedulesTableViewController: UITableViewController {
     
     var courses: BehaviorRelay<[SectionModel<String, CourseModel>]> = BehaviorRelay(value: [])
     var disposeBag = DisposeBag()
-    var schedulesViewModel: SchedulesViewModel = SchedulesViewModel()
+    struct Deps:HasCourse {
+        
+    }
+    var schedulesViewModel: SchedulesViewModel = SchedulesViewModel(dependencies: Deps())
     let rc: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -43,9 +46,9 @@ class SchedulesTableViewController: UITableViewController {
     
     func configureRefreshControl () {
         self.rc.attributedTitle = NSAttributedString(string: "Fetching schedules...", attributes: [
-            NSAttributedString.Key.foregroundColor: UIColor.white
-            ])
-        self.rc.tintColor = UIColor.white
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ])
+        self.rc.tintColor = UIColor.black
         self.rc.addTarget(self, action: #selector(self.onRefresh(_:)), for: .valueChanged)
         self.tableView.refreshControl = self.rc
     }
@@ -73,7 +76,8 @@ class SchedulesTableViewController: UITableViewController {
                 cell.classSection.text = item.CLASS_SECTION
                 
                 return cell
-            })
+            }
+        )
         
         dataSource.titleForHeaderInSection = { dataSource, index in
             let dateString = dataSource.sectionModels[index].model[0...10]

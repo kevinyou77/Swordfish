@@ -21,9 +21,9 @@ public class GradeInteractor {
         termRepository: TermRepository = TermRepository(),
         userRepository: UserRepository = UserRepository()
     ) {
-        self.gradeRepository = GradeRepository()
-        self.termRepository = TermRepository()
-        self.userRepository = UserRepository()
+        self.gradeRepository = gradeRepository
+        self.termRepository = termRepository
+        self.userRepository = userRepository
     }
     
     func getAPIGradeModels () -> Observable<APIGradeModel> {
