@@ -24,6 +24,9 @@
 		916BD98E2316DC3B00684737 /* HasAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916BD98D2316DC3B00684737 /* HasAuth.swift */; };
 		916BD9902316DC6900684737 /* HasTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916BD98F2316DC6900684737 /* HasTerm.swift */; };
 		916BD9922316DCA200684737 /* HasGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916BD9912316DCA200684737 /* HasGrade.swift */; };
+		916BD9942316E3BA00684737 /* SchedulesViewModelDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916BD9932316E3BA00684737 /* SchedulesViewModelDependencies.swift */; };
+		916D0B2D2316E55000E61BB8 /* FinancialsViewModelDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916D0B2C2316E55000E61BB8 /* FinancialsViewModelDependencies.swift */; };
+		916D0B2F2316E58B00E61BB8 /* HasFinancials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916D0B2E2316E58B00E61BB8 /* HasFinancials.swift */; };
 		91833DB72304164D002C84E5 /* FinancialsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91833DB62304164D002C84E5 /* FinancialsTableViewCell.swift */; };
 		91833DB923041668002C84E5 /* FinancialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91833DB823041668002C84E5 /* FinancialsViewController.swift */; };
 		91833DBB230416E2002C84E5 /* FinancialsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91833DBA230416E2002C84E5 /* FinancialsViewModel.swift */; };
@@ -101,6 +104,9 @@
 		916BD98D2316DC3B00684737 /* HasAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasAuth.swift; sourceTree = "<group>"; };
 		916BD98F2316DC6900684737 /* HasTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasTerm.swift; sourceTree = "<group>"; };
 		916BD9912316DCA200684737 /* HasGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasGrade.swift; sourceTree = "<group>"; };
+		916BD9932316E3BA00684737 /* SchedulesViewModelDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesViewModelDependencies.swift; sourceTree = "<group>"; };
+		916D0B2C2316E55000E61BB8 /* FinancialsViewModelDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsViewModelDependencies.swift; sourceTree = "<group>"; };
+		916D0B2E2316E58B00E61BB8 /* HasFinancials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasFinancials.swift; sourceTree = "<group>"; };
 		91833DB62304164D002C84E5 /* FinancialsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsTableViewCell.swift; sourceTree = "<group>"; };
 		91833DB823041668002C84E5 /* FinancialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsViewController.swift; sourceTree = "<group>"; };
 		91833DBA230416E2002C84E5 /* FinancialsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsViewModel.swift; sourceTree = "<group>"; };
@@ -222,6 +228,7 @@
 				916BD98D2316DC3B00684737 /* HasAuth.swift */,
 				916BD98F2316DC6900684737 /* HasTerm.swift */,
 				916BD9912316DCA200684737 /* HasGrade.swift */,
+				916D0B2E2316E58B00E61BB8 /* HasFinancials.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -230,6 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				916BD98B2316DC0400684737 /* GPAViewModelDependencies.swift */,
+				916BD9932316E3BA00684737 /* SchedulesViewModelDependencies.swift */,
+				916D0B2C2316E55000E61BB8 /* FinancialsViewModelDependencies.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -634,6 +643,7 @@
 				9189D5D42300744700E45CC6 /* DateExtension.swift in Sources */,
 				91F3912F22F9C9CE00D950A4 /* ScheduleRepository.swift in Sources */,
 				916BD98C2316DC0400684737 /* GPAViewModelDependencies.swift in Sources */,
+				916BD9942316E3BA00684737 /* SchedulesViewModelDependencies.swift in Sources */,
 				91C6BB20230163AF00EA5FEB /* GradeInteractor.swift in Sources */,
 				91A0C12122EF2F79001DB92B /* AuthInteractor.swift in Sources */,
 				916BD98923167FAB00684737 /* HasCourse.swift in Sources */,
@@ -645,11 +655,13 @@
 				916213F122ED8071007D4265 /* LoginViewController.swift in Sources */,
 				91D7187D22FD5765004DC47D /* SchedulesViewModel.swift in Sources */,
 				91F3913322F9EB9A00D950A4 /* TermRepository.swift in Sources */,
+				916D0B2F2316E58B00E61BB8 /* HasFinancials.swift in Sources */,
 				91C6BB26230170DE00EA5FEB /* GPAViewModel.swift in Sources */,
 				91833DBF23041750002C84E5 /* FinancialRepository.swift in Sources */,
 				91D627932313EFD8007D44EF /* HomeViewController.swift in Sources */,
 				91C6BB22230163BC00EA5FEB /* GradeModel.swift in Sources */,
 				91F24A1F22FC815000D6C831 /* RxHelper.swift in Sources */,
+				916D0B2D2316E55000E61BB8 /* FinancialsViewModelDependencies.swift in Sources */,
 				91833DC123041776002C84E5 /* FinancialModel.swift in Sources */,
 				91C8B24622ECAF3D009DC08A /* ViewController.swift in Sources */,
 				91D7187F22FD5A73004DC47D /* SchedulesCellViewModel.swift in Sources */,

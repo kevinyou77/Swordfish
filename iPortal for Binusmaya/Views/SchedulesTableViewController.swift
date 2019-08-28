@@ -17,10 +17,7 @@ class SchedulesTableViewController: UITableViewController {
     
     var courses: BehaviorRelay<[SectionModel<String, CourseModel>]> = BehaviorRelay(value: [])
     var disposeBag = DisposeBag()
-    struct Deps:HasCourse {
-        
-    }
-    var schedulesViewModel: SchedulesViewModel = SchedulesViewModel(dependencies: Deps())
+    var schedulesViewModel: SchedulesViewModel = SchedulesViewModel(dependencies: SchedulesViewModelDependencies())
     let rc: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {

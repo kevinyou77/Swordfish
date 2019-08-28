@@ -10,10 +10,15 @@ import Foundation
 
 public protocol HasCourse {
     var scheduleInteractor: CourseInteractor { get }
+    var scheduleRepository: ScheduleRepository { get }
 }
 
 extension HasCourse {
     var scheduleInteractor: CourseInteractor {
         return CourseInteractor()
+    }
+    
+    var scheduleRepository: ScheduleRepository {
+        return ScheduleRepository()
     }
 }
