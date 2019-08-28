@@ -13,7 +13,7 @@ import RealmSwift
 import RxSwift
 import RxCocoa
 
-class AuthInteractor {
+public class AuthInteractor {
     let userRepository: UserRepository
     
     init (

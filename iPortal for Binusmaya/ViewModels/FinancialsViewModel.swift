@@ -14,20 +14,19 @@ import Realm
 import RxDataSources
 
 class FinancialsViewModel {
+    typealias Dependencies = HasFinancials & HasAuth
     let financialInteractor: FinancialInteractor
     let authInteractor: AuthInteractor
     let disposeBag: DisposeBag
     var financialModels: BehaviorRelay<[FinancialModel]>
     
     init (
-        financialInteractor: FinancialInteractor = FinancialInteractor(),
-        authInteractor: AuthInteractor = AuthInteractor(),
-        financialModels: BehaviorRelay<[FinancialModel]> = BehaviorRelay<[FinancialModel]>(value: [])
+        dependencies: Dependencies
     ) {
-        self.authInteractor = authInteractor
-        self.financialInteractor = financialInteractor
+        self.authInteractor = dependencies.authInteractor
+        self.financialInteractor = dependencies.financialInteractor
         self.disposeBag = DisposeBag()
-        self.financialModels = financialModels
+        self.financialModels = BehaviorRelay<[FinancialModel]>(value: [])
     }
     
     func getFinancials (onDataReceived: @escaping ([FinancialModel]) -> ()) {

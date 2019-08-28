@@ -12,7 +12,7 @@ import RxCocoa
 import Realm
 import RealmSwift
 
-class TermInteractor {
+public class TermInteractor {
     let termRepository: TermRepository
     
     init (

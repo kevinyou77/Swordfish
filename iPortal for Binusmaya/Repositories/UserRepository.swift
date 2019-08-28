@@ -12,7 +12,7 @@ import RxRealm
 import RxSwift
 import RxCocoa
 
-class UserRepository {
+public class UserRepository {
     let disposeBag = DisposeBag()
     
     func saveUserCredentials (user: UserModel) {

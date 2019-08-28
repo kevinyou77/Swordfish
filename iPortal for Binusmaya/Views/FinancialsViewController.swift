@@ -14,7 +14,7 @@ class FinancialsViewController: UIViewController {
 
     @IBOutlet weak var financialsTableView: UITableView!
     
-    let financialsViewModel = FinancialsViewModel()
+    let financialsViewModel = FinancialsViewModel(dependencies: FinancialsViewModelDependencies())
     let disposeBag = DisposeBag()
     var financialModels = BehaviorRelay<[FinancialModel]>(value: [])
     let rc = UIRefreshControl()

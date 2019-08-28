@@ -14,6 +14,7 @@ import Realm
 import RxDataSources
 
 class SchedulesViewModel {
+    typealias Dependencies = HasAuth & HasCourse
     let authInteractor: AuthInteractor
     let courseInteractor: CourseInteractor
     let disposeBag: DisposeBag
@@ -21,15 +22,12 @@ class SchedulesViewModel {
     let courseRepository: ScheduleRepository
     
     init (
-        authInteractor: AuthInteractor = AuthInteractor(),
-        courseInteractor: CourseInteractor = CourseInteractor(),
-        courses: [SectionModel<String, CourseModel>] = [SectionModel<String, CourseModel>](),
-        courseRepository: ScheduleRepository = ScheduleRepository()
+        dependencies: Dependencies
     ) {
-        self.authInteractor = authInteractor
-        self.courseInteractor = courseInteractor
-        self.courses = courses
-        self.courseRepository = courseRepository
+        self.authInteractor = dependencies.authInteractor
+        self.courseInteractor = dependencies.scheduleInteractor
+        self.courseRepository = dependencies.scheduleRepository
+        self.courses = [SectionModel<String,CourseModel>]()
         self.disposeBag = DisposeBag()
     }
     

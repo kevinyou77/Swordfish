@@ -15,8 +15,8 @@ class GPAViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var gpaTableView: UITableView!
     @IBOutlet weak var topNavigation: UINavigationItem!
-    
-    let gpaViewModel = GPAViewModel()
+
+    let gpaViewModel = GPAViewModel(dependencies: GPAViewModelDependencies())
     let disposeBag = DisposeBag()
     let rc = UIRefreshControl()
     var gradeModels =  BehaviorRelay<[SectionModel<String, CourseGradeModel>]>(value: [])
@@ -68,13 +68,12 @@ class GPAViewController: UIViewController, UITableViewDelegate {
     func setNavigationBarTitleToCurrentGPA () {
         let currentGPA = self.gpaViewModel.culmulativeGPA
         self.topNavigation.title = "GPA - \(currentGPA)"
-        
     }
     
     func configureRefreshControl () {
         self.rc.attributedTitle = NSAttributedString(string: "Fetching GPAs...", attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor.white
-            ])
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ])
         self.rc.tintColor = UIColor.white
         self.rc.addTarget(self, action: #selector(self.onRefresh(_:)), for: .valueChanged)
         self.gpaTableView.refreshControl = self.rc

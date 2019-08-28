@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iPortal for Binusmaya/ViewModels/SchedulesViewModel.swift"
-            timestampString = "588244067.756683"
+            timestampString = "588703347.8495719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "init(authInteractor:courseInteractor:courses:courseRepository:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "init(dependencies:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
