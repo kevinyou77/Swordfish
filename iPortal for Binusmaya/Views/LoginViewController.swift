@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     
     var courseModels = [CourseModel]()
     var termModels = [TermModel]()
-    let loginViewModel = LoginViewModel()
+    let loginViewModel = LoginViewModel(dependencies: LoginViewModelDependencies())
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var loginStackView: UIStackView!

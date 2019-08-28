@@ -12,6 +12,8 @@ import RxCocoa
 import RxDataSources
 
 class LoginViewModel {
+    typealias Dependencies = HasFinancials & HasAuth & HasCourse & HasTerm & HasGrade
+
     let financialInteractor: FinancialInteractor
     let authInteractor: AuthInteractor
     let courseInteractor: CourseInteractor
@@ -22,13 +24,14 @@ class LoginViewModel {
     
     var cookies: String
     
-    init () {
-        self.authInteractor = AuthInteractor()
-        self.financialInteractor = FinancialInteractor()
+    init (dependencies: Dependencies) {
+        self.authInteractor = dependencies.authInteractor
+        self.financialInteractor = dependencies.financialInteractor
+        self.courseInteractor = dependencies.scheduleInteractor
+        self.termInteractor = dependencies.termInteractor
+        self.gradeInteractor = dependencies.gradeInteractor
+        
         self.disposeBag = DisposeBag()
-        self.courseInteractor = CourseInteractor()
-        self.termInteractor = TermInteractor()
-        self.gradeInteractor = GradeInteractor()
         self.cookies = ""
     }
     

@@ -27,6 +27,7 @@
 		916BD9942316E3BA00684737 /* SchedulesViewModelDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916BD9932316E3BA00684737 /* SchedulesViewModelDependencies.swift */; };
 		916D0B2D2316E55000E61BB8 /* FinancialsViewModelDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916D0B2C2316E55000E61BB8 /* FinancialsViewModelDependencies.swift */; };
 		916D0B2F2316E58B00E61BB8 /* HasFinancials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916D0B2E2316E58B00E61BB8 /* HasFinancials.swift */; };
+		916D0B312316EC7B00E61BB8 /* LoginViewModelDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916D0B302316EC7B00E61BB8 /* LoginViewModelDependencies.swift */; };
 		91833DB72304164D002C84E5 /* FinancialsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91833DB62304164D002C84E5 /* FinancialsTableViewCell.swift */; };
 		91833DB923041668002C84E5 /* FinancialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91833DB823041668002C84E5 /* FinancialsViewController.swift */; };
 		91833DBB230416E2002C84E5 /* FinancialsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91833DBA230416E2002C84E5 /* FinancialsViewModel.swift */; };
@@ -107,6 +108,7 @@
 		916BD9932316E3BA00684737 /* SchedulesViewModelDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesViewModelDependencies.swift; sourceTree = "<group>"; };
 		916D0B2C2316E55000E61BB8 /* FinancialsViewModelDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsViewModelDependencies.swift; sourceTree = "<group>"; };
 		916D0B2E2316E58B00E61BB8 /* HasFinancials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasFinancials.swift; sourceTree = "<group>"; };
+		916D0B302316EC7B00E61BB8 /* LoginViewModelDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelDependencies.swift; sourceTree = "<group>"; };
 		91833DB62304164D002C84E5 /* FinancialsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsTableViewCell.swift; sourceTree = "<group>"; };
 		91833DB823041668002C84E5 /* FinancialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsViewController.swift; sourceTree = "<group>"; };
 		91833DBA230416E2002C84E5 /* FinancialsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsViewModel.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				916BD98B2316DC0400684737 /* GPAViewModelDependencies.swift */,
 				916BD9932316E3BA00684737 /* SchedulesViewModelDependencies.swift */,
 				916D0B2C2316E55000E61BB8 /* FinancialsViewModelDependencies.swift */,
+				916D0B302316EC7B00E61BB8 /* LoginViewModelDependencies.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				91C6BB28230181F700EA5FEB /* GPAViewController.swift in Sources */,
 				91F3912822F9B00600D950A4 /* TermModel.swift in Sources */,
 				916BD9922316DCA200684737 /* HasGrade.swift in Sources */,
+				916D0B312316EC7B00E61BB8 /* LoginViewModelDependencies.swift in Sources */,
 				91833DB72304164D002C84E5 /* FinancialsTableViewCell.swift in Sources */,
 				912AC22F22F088D70019C8C9 /* StringHelper.swift in Sources */,
 				91F3912622F99C6600D950A4 /* CourseModel.swift in Sources */,
