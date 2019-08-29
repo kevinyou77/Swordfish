@@ -46,7 +46,7 @@ class LoginViewModel {
                 guard let self = self else { return Observable.empty() }
                 
                 self.cookies = self.authInteractor.getUserCredentials().cookie
-                return self.courseInteractor.getAllSchedules(withTerm: "1610", withCookie: self.cookies)
+                return self.courseInteractor.getAllSchedules(withCookie: self.cookies)
             }
             .flatMap { [weak self] schedules -> Observable<[SectionModel<String, CourseModel>]>  in
                 guard let self = self else { return Observable.empty() }
@@ -76,16 +76,17 @@ class LoginViewModel {
     }
     
     func getAllData (username: String, password: String) -> Observable<[GradeModel]> {
-        return self.getScheduleData(username: username, password: password).flatMap { [weak self] schedules -> Observable<[FinancialModel]> in
-            guard let self = self else { return Observable.empty() }
-            
-            return self.getFinancials()
-        }
-        .take(1)
-        .flatMap { [weak self] gpa -> Observable<[GradeModel]> in
-            guard let self = self else { return Observable.empty() }
-            
-            return self.getGPA()
-        }
+        return self.getScheduleData(username: username, password: password)
+            .flatMap { [weak self] schedules -> Observable<[FinancialModel]> in
+                guard let self = self else { return Observable.empty() }
+                
+                return self.getFinancials()
+            }
+            .take(1)
+            .flatMap { [weak self] gpa -> Observable<[GradeModel]> in
+                guard let self = self else { return Observable.empty() }
+                
+                return self.getGPA()
+            }
     }
 }

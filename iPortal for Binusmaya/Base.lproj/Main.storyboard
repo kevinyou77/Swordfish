@@ -10,6 +10,11 @@
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Circular-400-Book.ttf">
+            <string>Circular-Book</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--GPA - 3.57-->
         <scene sceneID="wwd-B2-Eob">
@@ -37,18 +42,18 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="197" height="27"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBJ-iA-CfY">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="197" height="19.333333333333332"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="197" height="20.333333333333332"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="Machine Learning">
                                                                             <attributes>
-                                                                                <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                                                                <font key="NSFont" size="16" name="Circular-Bold"/>
                                                                             </attributes>
                                                                         </fragment>
                                                                     </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xtc-8E-j8i">
-                                                                    <rect key="frame" x="0.0" y="19.333333333333332" width="197" height="7.6666666666666679"/>
+                                                                    <rect key="frame" x="0.0" y="20.333333333333332" width="197" height="6.6666666666666679"/>
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
@@ -57,7 +62,7 @@
                                                             <attributedString key="attributedText">
                                                                 <fragment content="A">
                                                                     <attributes>
-                                                                        <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                                                        <font key="NSFont" size="18" name="Circular-Bold"/>
                                                                     </attributes>
                                                                 </fragment>
                                                             </attributedString>
@@ -122,14 +127,15 @@
                                             <rect key="frame" x="20" y="10" width="374" height="39"/>
                                             <subviews>
                                                 <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="9Ns-f3-LLG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="229.66666666666666" height="39"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="226.33333333333334" height="39"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZD-XH-uhB">
-                                                            <rect key="frame" x="0.0" y="0.0" width="229.66666666666666" height="21.666666666666668"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="226.33333333333334" height="20.666666666666668"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Object Oriented Programming">
                                                                     <attributes>
-                                                                        <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <font key="NSFont" size="16" name="Circular-Bold"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -137,38 +143,38 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hrP-In-Mlh">
-                                                            <rect key="frame" x="0.0" y="24.666666666666664" width="158" height="14.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="23.666666666666664" width="151" height="15.333333333333336"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="11:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdx-xO-QTs">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="29.666666666666668" height="14.333333333333334"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="26" height="15.333333333333334"/>
+                                                                    <fontDescription key="fontDescription" name="Circular-Book" family="Circular" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="403" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgk-7E-XOB">
-                                                                    <rect key="frame" x="37.666666666666664" y="0.0" width="23" height="14.333333333333334"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <rect key="frame" x="34" y="0.0" width="21" height="15.333333333333334"/>
+                                                                    <fontDescription key="fontDescription" name="Circular-Book" family="Circular" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCL-LX-9nE">
-                                                                    <rect key="frame" x="68.666666666666671" y="0.0" width="23.333333333333329" height="14.333333333333334"/>
+                                                                    <rect key="frame" x="62.999999999999993" y="0.0" width="21.666666666666664" height="15.333333333333334"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="LI01">
                                                                             <attributes>
-                                                                                <font key="NSFont" size="12" name=".AppleSystemUIFont"/>
+                                                                                <font key="NSFont" size="12" name="Circular-Book"/>
                                                                             </attributes>
                                                                         </fragment>
                                                                     </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZL-RK-r17">
-                                                                    <rect key="frame" x="100" y="0.0" width="58" height="14.333333333333334"/>
+                                                                    <rect key="frame" x="92.666666666666671" y="0.0" width="58.333333333333329" height="15.333333333333334"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="ANGGREK">
                                                                             <attributes>
                                                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                                <font key="NSFont" size="12" name=".AppleSystemUIFont"/>
+                                                                                <font key="NSFont" size="12" name="Circular-Book"/>
                                                                             </attributes>
                                                                         </fragment>
                                                                     </attributedString>
@@ -180,14 +186,14 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hi9-jG-3E5">
-                                                    <rect key="frame" x="346" y="0.0" width="28" height="39"/>
+                                                    <rect key="frame" x="347.33333333333331" y="0.0" width="26.666666666666686" height="39"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lc6-dZ-sbT">
-                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="39"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="26.666666666666668" height="39"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="LEC">
                                                                     <attributes>
-                                                                        <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                                                        <font key="NSFont" size="14" name="Circular-Bold"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -366,19 +372,19 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="187" height="24"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igg-ra-8Bx">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="9.6666666666666661"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="146.66666666666666" height="20.333333333333332"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="Variable Tuition Fee">
                                                                             <attributes>
-                                                                                <font key="NSFont" size="16" name="Helvetica-Bold"/>
+                                                                                <font key="NSFont" size="16" name="Circular-Bold"/>
                                                                             </attributes>
                                                                         </fragment>
                                                                     </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rp. 3.500.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmg-qi-Y1w">
-                                                                    <rect key="frame" x="0.0" y="9.6666666666666679" width="80.333333333333329" height="14.333333333333332"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <rect key="frame" x="0.0" y="20.333333333333332" width="76.666666666666671" height="3.6666666666666679"/>
+                                                                    <fontDescription key="fontDescription" name="Circular-Book" family="Circular" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -388,19 +394,19 @@
                                                             <rect key="frame" x="187" y="0.0" width="187" height="24"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUM-En-wog">
-                                                                    <rect key="frame" x="109.33333333333331" y="0.0" width="77.666666666666686" height="9.6666666666666661"/>
+                                                                    <rect key="frame" x="113.66666666666669" y="0.0" width="73.333333333333314" height="20.333333333333332"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="25 Sep '19">
                                                                             <attributes>
-                                                                                <font key="NSFont" size="16" name="Helvetica-Bold"/>
+                                                                                <font key="NSFont" size="16" name="Circular-Bold"/>
                                                                             </attributes>
                                                                         </fragment>
                                                                     </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Upcoming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAd-8L-tk5">
-                                                                    <rect key="frame" x="129" y="9.6666666666666679" width="58" height="14.333333333333332"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <rect key="frame" x="131.66666666666669" y="20.333333333333332" width="55.333333333333343" height="3.6666666666666679"/>
+                                                                    <fontDescription key="fontDescription" name="Circular-Book" family="Circular" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -540,6 +546,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zX9-le-ddP">
                         <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Circular-Bold" family="Circular" pointSize="17"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Circular-Bold" family="Circular" pointSize="29"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -559,6 +571,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u72-xA-oMA">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Circular-Bold" family="Circular" pointSize="17"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -578,6 +593,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Zcc-ho-yTl">
                         <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Circular-Bold" family="Circular" pointSize="17"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Circular-Bold" family="Circular" pointSize="29"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

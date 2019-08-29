@@ -30,7 +30,7 @@ class GPAViewController: UIViewController, UITableViewDelegate {
             var labels = [UILabel]()
             for val in item.grades {
                 let label = UILabel()
-                label.font = label.font.withSize(13.0)
+                label.font = UIFont(name: "Circular-Book", size: 13)
                 
                 let lowerBound = val.grade.indexOf(char: "(")! + 1
                 let upperBound = val.grade.count - 2
@@ -130,7 +130,7 @@ class GPAViewController: UIViewController, UITableViewDelegate {
             averageGPA.attributedText = NSAttributedString(
                 string: str,
                 attributes: [
-                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .bold)
+                    NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)
                 ]
             )
 

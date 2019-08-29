@@ -25,7 +25,7 @@ public class CourseInteractor {
         self.termRepository = termRepository
     }
     
-    func getAllSchedules (withTerm term : String, withCookie cookies : String) -> Observable<[CourseModel]> {
+    func getAllSchedules (withCookie cookies : String) -> Observable<[CourseModel]> {
         return BimayApi.getAllSchedules(withCookie: cookies)
             .flatMap { [weak self] event -> Observable<[CourseModel]> in
                 guard let self = self else { return Observable.empty() }

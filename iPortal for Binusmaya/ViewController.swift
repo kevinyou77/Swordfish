@@ -17,6 +17,8 @@ class ViewController: UITabBarController {
         // Do any additional setup after loading the view.
         
         self.tabBarController?.viewControllers?.forEach { let _ = $0.view }
+        let fontAttributes = [NSAttributedString.Key.font: UIFont(name: "Circular-Book", size: 11.0)!]
+        UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
     }
 
 }

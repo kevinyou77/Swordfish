@@ -28,6 +28,10 @@
 		916D0B2D2316E55000E61BB8 /* FinancialsViewModelDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916D0B2C2316E55000E61BB8 /* FinancialsViewModelDependencies.swift */; };
 		916D0B2F2316E58B00E61BB8 /* HasFinancials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916D0B2E2316E58B00E61BB8 /* HasFinancials.swift */; };
 		916D0B312316EC7B00E61BB8 /* LoginViewModelDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916D0B302316EC7B00E61BB8 /* LoginViewModelDependencies.swift */; };
+		916D0B362317A79F00E61BB8 /* Circular-400-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 916D0B322317A79F00E61BB8 /* Circular-400-Book.ttf */; };
+		916D0B372317A79F00E61BB8 /* Circular-700-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 916D0B332317A79F00E61BB8 /* Circular-700-Bold.ttf */; };
+		916D0B382317A79F00E61BB8 /* Circular-500-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 916D0B342317A79F00E61BB8 /* Circular-500-Medium.ttf */; };
+		916D0B392317A79F00E61BB8 /* Circular-800-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 916D0B352317A79F00E61BB8 /* Circular-800-Black.ttf */; };
 		91833DB72304164D002C84E5 /* FinancialsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91833DB62304164D002C84E5 /* FinancialsTableViewCell.swift */; };
 		91833DB923041668002C84E5 /* FinancialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91833DB823041668002C84E5 /* FinancialsViewController.swift */; };
 		91833DBB230416E2002C84E5 /* FinancialsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91833DBA230416E2002C84E5 /* FinancialsViewModel.swift */; };
@@ -109,6 +113,10 @@
 		916D0B2C2316E55000E61BB8 /* FinancialsViewModelDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsViewModelDependencies.swift; sourceTree = "<group>"; };
 		916D0B2E2316E58B00E61BB8 /* HasFinancials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasFinancials.swift; sourceTree = "<group>"; };
 		916D0B302316EC7B00E61BB8 /* LoginViewModelDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelDependencies.swift; sourceTree = "<group>"; };
+		916D0B322317A79F00E61BB8 /* Circular-400-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-400-Book.ttf"; sourceTree = "<group>"; };
+		916D0B332317A79F00E61BB8 /* Circular-700-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-700-Bold.ttf"; sourceTree = "<group>"; };
+		916D0B342317A79F00E61BB8 /* Circular-500-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-500-Medium.ttf"; sourceTree = "<group>"; };
+		916D0B352317A79F00E61BB8 /* Circular-800-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-800-Black.ttf"; sourceTree = "<group>"; };
 		91833DB62304164D002C84E5 /* FinancialsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsTableViewCell.swift; sourceTree = "<group>"; };
 		91833DB823041668002C84E5 /* FinancialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsViewController.swift; sourceTree = "<group>"; };
 		91833DBA230416E2002C84E5 /* FinancialsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialsViewModel.swift; sourceTree = "<group>"; };
@@ -246,6 +254,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		916D0B3A2317A7A700E61BB8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				916D0B322317A79F00E61BB8 /* Circular-400-Book.ttf */,
+				916D0B342317A79F00E61BB8 /* Circular-500-Medium.ttf */,
+				916D0B332317A79F00E61BB8 /* Circular-700-Bold.ttf */,
+				916D0B352317A79F00E61BB8 /* Circular-800-Black.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		91A0C11F22EF2F3B001DB92B /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +315,7 @@
 		91C8B24222ECAF3D009DC08A /* iPortal for Binusmaya */ = {
 			isa = PBXGroup;
 			children = (
+				916D0B3A2317A7A700E61BB8 /* Fonts */,
 				9158D5BA231153BE00B300AE /* Dependencies */,
 				91560D9022FDDE89005B1D42 /* Extensions */,
 				91D7187B22FD572E004DC47D /* ViewModels */,
@@ -502,9 +522,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				916D0B372317A79F00E61BB8 /* Circular-700-Bold.ttf in Resources */,
 				91C8B24E22ECAF40009DC08A /* LaunchScreen.storyboard in Resources */,
 				91C8B24B22ECAF40009DC08A /* Assets.xcassets in Resources */,
 				91C8B24922ECAF3D009DC08A /* Main.storyboard in Resources */,
+				916D0B382317A79F00E61BB8 /* Circular-500-Medium.ttf in Resources */,
+				916D0B392317A79F00E61BB8 /* Circular-800-Black.ttf in Resources */,
+				916D0B362317A79F00E61BB8 /* Circular-400-Book.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

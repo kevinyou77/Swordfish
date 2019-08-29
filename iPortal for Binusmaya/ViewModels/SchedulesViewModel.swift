@@ -15,6 +15,7 @@ import RxDataSources
 
 class SchedulesViewModel {
     typealias Dependencies = HasAuth & HasCourse
+
     let authInteractor: AuthInteractor
     let courseInteractor: CourseInteractor
     let disposeBag: DisposeBag
@@ -49,7 +50,7 @@ class SchedulesViewModel {
                     guard let self = self else { return Observable.empty() }
                     
                     let newUser = self.authInteractor.getUserCredentials()
-                    return self.courseInteractor.getAllSchedules(withTerm: "1610", withCookie: newUser.cookie)
+                    return self.courseInteractor.getAllSchedules(withCookie: newUser.cookie)
                 }
                 .flatMap { [weak self] schedules -> Observable<[SectionModel<String, CourseModel>]>  in
                     guard let self = self else { return Observable.empty() }

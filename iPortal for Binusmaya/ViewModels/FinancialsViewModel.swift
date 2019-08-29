@@ -15,6 +15,7 @@ import RxDataSources
 
 class FinancialsViewModel {
     typealias Dependencies = HasFinancials & HasAuth
+
     let financialInteractor: FinancialInteractor
     let authInteractor: AuthInteractor
     let disposeBag: DisposeBag
