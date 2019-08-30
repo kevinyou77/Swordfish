@@ -19,6 +19,19 @@ class SchedulesTableViewController: UITableViewController {
     var disposeBag = DisposeBag()
     var schedulesViewModel: SchedulesViewModel = SchedulesViewModel(dependencies: SchedulesViewModelDependencies())
     let rc: UIRefreshControl = UIRefreshControl()
+    var dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, CourseModel>>(
+        configureCell: { (dataSource, tv, indexPath, item) -> UITableViewCell in
+            let cell = tv.dequeueReusableCell(withIdentifier: "SchedulesTableViewCell", for: indexPath) as! SchedulesTableViewCell
+            cell.courseTitle.text = item.COURSE_TITLE_LONG
+            cell.courseRoom.text = item.ROOM
+            cell.courseStart.text = item.MEETING_TIME_START
+            cell.courseType.text = item.N_DELIVERY_MODE
+            cell.classCampus.text = item.LOCATION
+            cell.classSection.text = item.CLASS_SECTION
+            
+            return cell
+        }
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,38 +71,24 @@ class SchedulesTableViewController: UITableViewController {
     }
     
     func setTableView () {
-        self.tableView.delegate = nil
+        self.tableView.delegate = self
         self.tableView.dataSource = nil
         self.tableView.rowHeight = UITableView.automaticDimension
         
-        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, CourseModel>>(
-            configureCell: { (dataSource, tv, indexPath, item) -> UITableViewCell in
-                let cell = tv.dequeueReusableCell(withIdentifier: "SchedulesTableViewCell", for: indexPath) as! SchedulesTableViewCell
-                cell.courseTitle.text = item.COURSE_TITLE_LONG
-                cell.courseRoom.text = item.ROOM
-                cell.courseStart.text = item.MEETING_TIME_START
-                cell.courseType.text = item.N_DELIVERY_MODE
-                cell.classCampus.text = item.LOCATION
-                cell.classSection.text = item.CLASS_SECTION
-                
-                return cell
-            }
-        )
-        
-        dataSource.titleForHeaderInSection = { dataSource, index in
-            let dateString = dataSource.sectionModels[index].model[0...10]
-            
-            let dateFormatterGet = DateFormatter()
-            dateFormatterGet.dateFormat = "yyyy-MM-dd"
-            
-            let dateFormatterPrint = DateFormatter()
-            dateFormatterPrint.dateFormat = "EEEE, MMMM dd"
-            
-            let date = dateFormatterGet.date(from: dateString)
-            
-            let fullDate = dateFormatterPrint.string(from: date!)
-            return fullDate
-        }
+//        dataSource.titleForHeaderInSection = { dataSource, index in
+//            let dateString = dataSource.sectionModels[index].model[0...10]
+//
+//            let dateFormatterGet = DateFormatter()
+//            dateFormatterGet.dateFormat = "yyyy-MM-dd"
+//
+//            let dateFormatterPrint = DateFormatter()
+//            dateFormatterPrint.dateFormat = "EEEE, MMMM dd"
+//
+//            let date = dateFormatterGet.date(from: dateString)
+//
+//            let fullDate = dateFormatterPrint.string(from: date!)
+//            return fullDate
+//        }
        
         self.courses
             .bind(to: tableView.rx.items(dataSource: dataSource))
@@ -100,5 +99,34 @@ class SchedulesTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let dateString = dataSource.sectionModels[section].model[0...10]
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "EEEE, MMMM dd"
+        
+        let date = dateFormatterGet.date(from: dateString)
+        
+        let fullDate = dateFormatterPrint.string(from: date!)
+        
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        headerView.backgroundColor = UIColor(red: CGFloat(247.0 / 255.0), green: CGFloat(247.0 / 255.0), blue: CGFloat(247.0 / 255.0), alpha: 1)
+        
+        let dateLabel = UILabel()
+        dateLabel.frame = CGRect.init(x: 20, y: 0, width: headerView.frame.width, height: headerView.center.y)
+        dateLabel.attributedText = NSAttributedString(
+            string: fullDate,
+            attributes: [
+                NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)!
+            ]
+        )
+        
+        headerView.addSubview(dateLabel)
+        
+        return headerView
+    }
 
 }

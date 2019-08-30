@@ -117,7 +117,7 @@ class GPAViewController: UIViewController, UITableViewDelegate {
             semesterLabel.attributedText = NSAttributedString(
                 string: self.dataSource[section].model,
                 attributes: [
-                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .bold)
+                    NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)!
                 ]
             )
 
@@ -130,7 +130,7 @@ class GPAViewController: UIViewController, UITableViewDelegate {
             averageGPA.attributedText = NSAttributedString(
                 string: str,
                 attributes: [
-                    NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)
+                    NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)!
                 ]
             )
 
