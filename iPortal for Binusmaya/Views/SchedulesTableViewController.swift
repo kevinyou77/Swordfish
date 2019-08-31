@@ -74,21 +74,6 @@ class SchedulesTableViewController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = nil
         self.tableView.rowHeight = UITableView.automaticDimension
-        
-//        dataSource.titleForHeaderInSection = { dataSource, index in
-//            let dateString = dataSource.sectionModels[index].model[0...10]
-//
-//            let dateFormatterGet = DateFormatter()
-//            dateFormatterGet.dateFormat = "yyyy-MM-dd"
-//
-//            let dateFormatterPrint = DateFormatter()
-//            dateFormatterPrint.dateFormat = "EEEE, MMMM dd"
-//
-//            let date = dateFormatterGet.date(from: dateString)
-//
-//            let fullDate = dateFormatterPrint.string(from: date!)
-//            return fullDate
-//        }
        
         self.courses
             .bind(to: tableView.rx.items(dataSource: dataSource))
