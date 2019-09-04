@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "03F1FADE1B6A71290471E9D536A57BB4"
+               BlueprintIdentifier = "BF0AEAED391511C6D429001464B897CA"
                BuildableName = "Pods_iPortal_for_Binusmaya.framework"
                BlueprintName = "Pods-iPortal for Binusmaya"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "03F1FADE1B6A71290471E9D536A57BB4"
+            BlueprintIdentifier = "BF0AEAED391511C6D429001464B897CA"
             BuildableName = "Pods_iPortal_for_Binusmaya.framework"
             BlueprintName = "Pods-iPortal for Binusmaya"
             ReferencedContainer = "container:Pods.xcodeproj">

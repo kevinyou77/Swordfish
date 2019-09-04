@@ -59,7 +59,7 @@
 		91D7187D22FD5765004DC47D /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7187C22FD5765004DC47D /* SchedulesViewModel.swift */; };
 		91D7187F22FD5A73004DC47D /* SchedulesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7187E22FD5A73004DC47D /* SchedulesCellViewModel.swift */; };
 		91DD30B02306920E0099FF6A /* ScheduleSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DD30AF2306920E0099FF6A /* ScheduleSectionTableViewCell.swift */; };
-		91F24A1F22FC815000D6C831 /* RxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F24A1E22FC815000D6C831 /* RxHelper.swift */; };
+		91F24A1F22FC815000D6C831 /* RxNetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F24A1E22FC815000D6C831 /* RxNetworkHelper.swift */; };
 		91F3912622F99C6600D950A4 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F3912522F99C6600D950A4 /* CourseModel.swift */; };
 		91F3912822F9B00600D950A4 /* TermModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F3912722F9B00600D950A4 /* TermModel.swift */; };
 		91F3912A22F9B5F200D950A4 /* TermInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F3912922F9B5F200D950A4 /* TermInteractor.swift */; };
@@ -150,7 +150,7 @@
 		91D7187C22FD5765004DC47D /* SchedulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesViewModel.swift; sourceTree = "<group>"; };
 		91D7187E22FD5A73004DC47D /* SchedulesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesCellViewModel.swift; sourceTree = "<group>"; };
 		91DD30AF2306920E0099FF6A /* ScheduleSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSectionTableViewCell.swift; sourceTree = "<group>"; };
-		91F24A1E22FC815000D6C831 /* RxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxHelper.swift; sourceTree = "<group>"; };
+		91F24A1E22FC815000D6C831 /* RxNetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNetworkHelper.swift; sourceTree = "<group>"; };
 		91F3912522F99C6600D950A4 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		91F3912722F9B00600D950A4 /* TermModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermModel.swift; sourceTree = "<group>"; };
 		91F3912922F9B5F200D950A4 /* TermInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermInteractor.swift; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				912AC22E22F088D70019C8C9 /* StringHelper.swift */,
-				91F24A1E22FC815000D6C831 /* RxHelper.swift */,
+				91F24A1E22FC815000D6C831 /* RxNetworkHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -558,9 +558,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iPortal for Binusmaya/Pods-iPortal for Binusmaya-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
+				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
+				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -569,14 +570,16 @@
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+				"${BUILT_PRODUCTS_DIR}/Texture/AsyncDisplayKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -585,6 +588,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncDisplayKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -687,7 +691,7 @@
 				91833DBF23041750002C84E5 /* FinancialRepository.swift in Sources */,
 				91D627932313EFD8007D44EF /* HomeViewController.swift in Sources */,
 				91C6BB22230163BC00EA5FEB /* GradeModel.swift in Sources */,
-				91F24A1F22FC815000D6C831 /* RxHelper.swift in Sources */,
+				91F24A1F22FC815000D6C831 /* RxNetworkHelper.swift in Sources */,
 				916D0B2D2316E55000E61BB8 /* FinancialsViewModelDependencies.swift in Sources */,
 				91833DC123041776002C84E5 /* FinancialModel.swift in Sources */,
 				91C8B24622ECAF3D009DC08A /* ViewController.swift in Sources */,

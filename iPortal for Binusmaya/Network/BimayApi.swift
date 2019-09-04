@@ -43,7 +43,7 @@ class BimayApi : BimayApiProtocol {
     static func getIndexHtml() -> Observable<String> {
         let url = self.endpoints.login!
 
-        return RxHelper.request(to: url, with: [:]) { (observer, data) in
+        return RxNetworkHelper.get(to: url, with: [:]) { (observer, data) in
             let indexHtmlString = String(data: data, encoding: .utf8)
             observer.onNext(indexHtmlString!)
             observer.on(.completed)
@@ -102,11 +102,10 @@ class BimayApi : BimayApiProtocol {
             "Cookie": cookies
         ]
         
-        return RxHelper.request(to: url, with: params) { (observers, data) in
+        return RxNetworkHelper.get(to: url, with: params) { (observers, data) in
             observers.onNext(String(data: data, encoding: .utf8)!)
             observers.onCompleted()
         }
-
     }
     
     static func getHiddenFieldsFromLoaderJs (from htmlString: String) -> [String: [String: String]]? {
@@ -182,21 +181,13 @@ class BimayApi : BimayApiProtocol {
     static func getAllSchedules(withCookie cookie: String) -> Observable<Data> {
         let url = self.endpoints.getAllSchedules!
         
-        var request = URLRequest(url: url)
-        request.setValue(cookie, forHTTPHeaderField: "Cookie")
-        request.setValue("https://binusmaya.binus.ac.id/newStudent/index.html", forHTTPHeaderField: "Referer")
-        request.setValue(
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
-            forHTTPHeaderField: "User-Agent"
-        )
-        
         let params = [
             "Referer": "https://binusmaya.binus.ac.id/newStudent/index.html",
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
             "Cookie": cookie
         ]
         
-        return RxHelper.request(to: url, with: params) { (observers, data) in
+        return RxNetworkHelper.get(to: url, with: params) { (observers, data) in
             observers.onNext(data)
             observers.onCompleted()
         }
@@ -211,7 +202,7 @@ class BimayApi : BimayApiProtocol {
             "Cookie": cookie
         ]
         
-        return RxHelper.request(to: url, with: params) { (observers, data) in
+        return RxNetworkHelper.get(to: url, with: params) { (observers, data) in
             observers.onNext(data)
             observers.onCompleted()
         }
@@ -225,7 +216,7 @@ class BimayApi : BimayApiProtocol {
             "Cookie": cookie
         ]
 
-        return RxHelper.request(to: url, with: params) { (observers, data) in
+        return RxNetworkHelper.get(to: url, with: params) { (observers, data) in
             observers.onNext(data)
             observers.onCompleted()
         }
@@ -239,7 +230,7 @@ class BimayApi : BimayApiProtocol {
             "Cookie": cookie
         ]
         
-        return RxHelper.request(to: url, with: params) { (observers, data) in
+        return RxNetworkHelper.get(to: url, with: params) { (observers, data) in
             observers.onNext(data)
             observers.onCompleted()
         }

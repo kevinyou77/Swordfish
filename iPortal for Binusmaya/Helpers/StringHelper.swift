@@ -10,7 +10,7 @@ import Foundation
 
 class StringHelper {
     static func getValueFromRegex (from string: String, with pattern: String) -> [String]? {
-        do{
+        do {
             let regexFromPattern = try NSRegularExpression(pattern: pattern)
             
             let findMatchFromRegex = regexFromPattern.matches(
