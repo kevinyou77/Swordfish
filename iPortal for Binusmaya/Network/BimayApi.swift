@@ -10,7 +10,6 @@ import Foundation
 import SwiftSoup
 import RxSwift
 import RxCocoa
-import Alamofire
 
 struct Endpoints {
     var baseUrl: URL? { return URL(string: "https://binusmaya.binus.ac.id") }
