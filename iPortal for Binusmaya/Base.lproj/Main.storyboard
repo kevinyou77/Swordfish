@@ -458,80 +458,10 @@
                     <view key="view" contentMode="scaleToFill" id="OJO-Ug-fDZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqh-oe-fyX">
-                                <rect key="frame" x="0.0" y="20" width="414" height="667"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yf9-ZX-usA">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="GNH-Ww-4Ot">
-                                                <rect key="frame" x="15" y="15" width="384" height="50"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOM-yQ-LLb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
-                                                        <attributedString key="attributedText">
-                                                            <fragment content="September 27, 2019">
-                                                                <attributes>
-                                                                    <font key="NSFont" size="24" name="HelveticaNeue-Bold"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mock-profile" translatesAutoresizingMaskIntoConstraints="NO" id="n5f-3B-Y9A">
-                                                        <rect key="frame" x="334" y="0.0" width="50" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="cUC-CB-uiQ"/>
-                                                            <constraint firstAttribute="width" constant="50" id="pvD-cr-j9o"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.33088439089999999" green="0.78228772079999997" blue="0.66019046950000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </stackView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3kc-6e-G8o">
-                                                <rect key="frame" x="15" y="80" width="384" height="66.666666666666686"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.94117647058823528" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstItem="3kc-6e-G8o" firstAttribute="top" secondItem="GNH-Ww-4Ot" secondAttribute="bottom" constant="15" id="7hC-QX-uMS"/>
-                                            <constraint firstItem="3kc-6e-G8o" firstAttribute="leading" secondItem="yf9-ZX-usA" secondAttribute="leading" constant="15" id="Ae3-qZ-Cbb"/>
-                                            <constraint firstAttribute="trailing" secondItem="GNH-Ww-4Ot" secondAttribute="trailing" constant="15" id="N3r-eH-4QO"/>
-                                            <constraint firstItem="GNH-Ww-4Ot" firstAttribute="top" secondItem="yf9-ZX-usA" secondAttribute="top" constant="15" id="dfC-Fc-PcR"/>
-                                            <constraint firstItem="GNH-Ww-4Ot" firstAttribute="leading" secondItem="yf9-ZX-usA" secondAttribute="leading" constant="15" id="jwe-O6-56v"/>
-                                            <constraint firstAttribute="trailing" secondItem="3kc-6e-G8o" secondAttribute="trailing" constant="15" id="ze4-15-oYa"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="yf9-ZX-usA" secondAttribute="bottom" id="6yP-aY-dgP"/>
-                                    <constraint firstItem="yf9-ZX-usA" firstAttribute="top" secondItem="Tqh-oe-fyX" secondAttribute="top" id="Avb-2U-vrc"/>
-                                    <constraint firstAttribute="trailing" secondItem="yf9-ZX-usA" secondAttribute="trailing" id="NXl-du-MVi"/>
-                                    <constraint firstItem="yf9-ZX-usA" firstAttribute="leading" secondItem="Tqh-oe-fyX" secondAttribute="leading" id="eXq-90-SXT"/>
-                                    <constraint firstItem="yf9-ZX-usA" firstAttribute="height" secondItem="Tqh-oe-fyX" secondAttribute="height" id="mFI-Me-CN5"/>
-                                    <constraint firstItem="yf9-ZX-usA" firstAttribute="width" secondItem="Tqh-oe-fyX" secondAttribute="width" id="vzG-Hc-V6b"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Tqh-oe-fyX" firstAttribute="top" secondItem="7dE-eO-Bri" secondAttribute="top" id="EdE-pH-4To"/>
-                            <constraint firstItem="7dE-eO-Bri" firstAttribute="trailing" secondItem="Tqh-oe-fyX" secondAttribute="trailing" id="G0Z-MT-Z9Q"/>
-                            <constraint firstItem="7dE-eO-Bri" firstAttribute="bottom" secondItem="Tqh-oe-fyX" secondAttribute="bottom" id="nLa-SO-yTu"/>
-                            <constraint firstItem="Tqh-oe-fyX" firstAttribute="leading" secondItem="7dE-eO-Bri" secondAttribute="leading" id="y0U-vh-CkM"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7dE-eO-Bri"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="kCf-LE-sCd"/>
-                    <connections>
-                        <outlet property="profileBarStackView" destination="GNH-Ww-4Ot" id="iXN-mz-pfy"/>
-                        <outlet property="profileImageView" destination="n5f-3B-Y9A" id="yFN-Of-dk9"/>
-                        <outlet property="profileLabel" destination="HOM-yQ-LLb" id="6I5-zB-dGr"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ax-js-7ma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -614,6 +544,5 @@
         <image name="Calendar-Icon-Small" width="29" height="29"/>
         <image name="Icon-Small" width="29" height="29"/>
         <image name="Money-Icon-Small" width="29" height="29"/>
-        <image name="mock-profile" width="431.33334350585938" height="433.33334350585938"/>
     </resources>
 </document>
