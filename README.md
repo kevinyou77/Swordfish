@@ -29,6 +29,7 @@ Also, I don't know if this project will ever go on the AppStore due to Apple's a
    - [**RxSwift**](https://github.com/ReactiveX/RxSwift), This project was originally written with PromiseKit, but after seeing the FRM (Functional Reactive Programming) hype, I
    decided to make my life harder by migrating to RxSwift. Used to
    handle asynchronous requests and reactive UI
+   - [**Texture**](https://texturegroup.org/), UI framework that comes with their own layout engine, why? Because AutoLayout sucks.
    - [**RxTableDataSources**](https://github.com/RxSwiftCommunity/RxDataSources/), Makes your life and mine easier when dealing with table data binding with Rx
    - [**SwiftSoup**](https://github.com/scinfu/SwiftSoup), To extract data and stuffs from HTML
    - [**CocoaPods**](https://cocoapods.org/), to manage dependencies
