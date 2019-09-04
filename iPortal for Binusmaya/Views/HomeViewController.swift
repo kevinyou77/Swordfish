@@ -11,22 +11,17 @@ import AsyncDisplayKit
 
 class HomeViewController: ASViewController<ASDisplayNode> {
     
+    var screenSize: CGRect = CGRect()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.screenSize = UIScreen.main.bounds
         self.setupUI()
     }
     
-//    init () {
-//        super.init(node: ASDisplayNode())
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("storyboards are incompatible with truth and beauty")
-//    }
-    
     func setupUI () {
         let origin = CGPoint(x: 0, y: 0)
-        let size = CGSize(width: 500, height: 500)
+        let size = CGSize(width: self.screenSize.width, height: self.screenSize.height)
         
         let scrollNode = ASScrollNode()
         scrollNode.automaticallyManagesSubnodes = true
@@ -35,60 +30,57 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         
         scrollNode.backgroundColor = UIColor.blue
         scrollNode.scrollableDirections = .init(arrayLiteral: [.up, .down])
+        
         scrollNode.layoutSpecBlock = { node, constrainedSize -> ASLayoutSpec in
-            return self.setupProfileBar()
+            return self.getScrollNodeLayoutSpecBlock()
         }
         
         let wrapperViewNode = ASDisplayNode()
-        wrapperViewNode.backgroundColor = UIColor.cyan
         wrapperViewNode.frame = CGRect(origin: origin, size: size)
         wrapperViewNode.addSubnode(scrollNode)
         
         view.addSubnode(wrapperViewNode)
     }
     
-    func setupProfileBar () -> ASStackLayoutSpec {
-        let profileBarStackNode = ASStackLayoutSpec()
-        profileBarStackNode.direction = .horizontal
-        profileBarStackNode.style.minWidth = ASDimensionMakeWithPoints(60.0)
-        profileBarStackNode.style.maxHeight = ASDimensionMakeWithPoints(40.0)
+    func getScrollNodeLayoutSpecBlock () -> ASLayoutSpec {
+        let scrollNodeWrapper = ASStackLayoutSpec.vertical()
+        scrollNodeWrapper.style.width = ASDimensionMakeWithPoints(self.screenSize.width)
+        scrollNodeWrapper.style.height = ASDimensionMakeWithPoints(self.screenSize.height)
         
-        let profileUsernameTextNode = ASTextNode()
-        profileUsernameTextNode.attributedText = NSAttributedString(
-            string: "Kevin",
-            attributes: [
-                NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)!
-            ]
-        )
-        
-        let profileBarStackNode1 = ASStackLayoutSpec()
-        profileBarStackNode1.direction = .horizontal
-        profileBarStackNode1.style.minWidth = ASDimensionMakeWithPoints(60.0)
-        profileBarStackNode1.style.maxHeight = ASDimensionMakeWithPoints(40.0)
-        
-        let profileUsernameTextNode1 = ASTextNode()
-        profileUsernameTextNode1.attributedText = NSAttributedString(
-            string: "Kevinsdfs",
-            attributes: [
-                NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)!
-            ]
-        )
-        
-        let origin = CGPoint(x: 0, y: 0)
-        let size = CGSize(width: 100, height: 100)
-        let wrapperViewNode = ASDisplayNode()
-        wrapperViewNode.backgroundColor = UIColor.yellow
-        wrapperViewNode.frame = CGRect(origin: origin, size: size)
-        
-        profileUsernameTextNode.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 100, height: 100))
-        
-        profileBarStackNode.children = [
-            profileUsernameTextNode,
-            profileBarStackNode1,
-            wrapperViewNode
+        scrollNodeWrapper.children = [
+            self.profileBar(),
         ]
         
-        return profileBarStackNode
+        return scrollNodeWrapper
+    }
+    
+    func profileBar () -> ASLayoutSpec {
+        let origin = CGPoint(x: 0, y: 0)
+        let size = CGSize(width: self.screenSize.width, height: 500)
+        let profileBarStackNode = ASStackLayoutSpec()
+        profileBarStackNode.direction = .horizontal
+        profileBarStackNode.justifyContent = .center
+        
+        let profileBarUsername = ASTextNode()
+        profileBarUsername.frame = CGRect(origin: origin, size: CGSize(width: 40, height: 100))
+        profileBarUsername.attributedText = NSAttributedString(string: "Kevin Yulias", attributes: [:])
+        
+        let profileBarImage = ASTextNode()
+        profileBarUsername.frame = CGRect(origin: origin, size: CGSize(width: 40, height: 100))
+        profileBarImage.attributedText = NSAttributedString(string: "Kevin Yuliass", attributes: [:])
+        
+        profileBarStackNode.children = [
+            profileBarUsername,
+            profileBarImage
+        ]
+        
+        let profileBarBackground = ASDisplayNode()
+        profileBarBackground.frame = CGRect(origin: origin, size: size)
+        profileBarBackground.backgroundColor = UIColor.green
+        
+        let profileBarWrapper = ASBackgroundLayoutSpec(child: profileBarStackNode, background: profileBarBackground)
+        
+        return profileBarWrapper
     }
 }
 
