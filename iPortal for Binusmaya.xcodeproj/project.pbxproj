@@ -58,6 +58,8 @@
 		91D627932313EFD8007D44EF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D627922313EFD8007D44EF /* HomeViewController.swift */; };
 		91D7187D22FD5765004DC47D /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7187C22FD5765004DC47D /* SchedulesViewModel.swift */; };
 		91D7187F22FD5A73004DC47D /* SchedulesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7187E22FD5A73004DC47D /* SchedulesCellViewModel.swift */; };
+		91DA0EA4232631A700BA47CF /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA0EA3232631A700BA47CF /* Screen.swift */; };
+		91DA0EA623263E5D00BA47CF /* DefaultSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA0EA523263E5D00BA47CF /* DefaultSizes.swift */; };
 		91DD30B02306920E0099FF6A /* ScheduleSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DD30AF2306920E0099FF6A /* ScheduleSectionTableViewCell.swift */; };
 		91F24A1F22FC815000D6C831 /* RxNetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F24A1E22FC815000D6C831 /* RxNetworkHelper.swift */; };
 		91F3912622F99C6600D950A4 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F3912522F99C6600D950A4 /* CourseModel.swift */; };
@@ -149,6 +151,8 @@
 		91D627922313EFD8007D44EF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		91D7187C22FD5765004DC47D /* SchedulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesViewModel.swift; sourceTree = "<group>"; };
 		91D7187E22FD5A73004DC47D /* SchedulesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesCellViewModel.swift; sourceTree = "<group>"; };
+		91DA0EA3232631A700BA47CF /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		91DA0EA523263E5D00BA47CF /* DefaultSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSizes.swift; sourceTree = "<group>"; };
 		91DD30AF2306920E0099FF6A /* ScheduleSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSectionTableViewCell.swift; sourceTree = "<group>"; };
 		91F24A1E22FC815000D6C831 /* RxNetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNetworkHelper.swift; sourceTree = "<group>"; };
 		91F3912522F99C6600D950A4 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
@@ -356,6 +360,7 @@
 		91D7187922FD522E004DC47D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				91DA0EA22326318900BA47CF /* UISizes */,
 				91D7187A22FD5242004DC47D /* Cells */,
 				916213F022ED8071007D4265 /* LoginViewController.swift */,
 				91C6BB27230181F700EA5FEB /* GPAViewController.swift */,
@@ -387,6 +392,15 @@
 				914B31692305502000744764 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		91DA0EA22326318900BA47CF /* UISizes */ = {
+			isa = PBXGroup;
+			children = (
+				91DA0EA3232631A700BA47CF /* Screen.swift */,
+				91DA0EA523263E5D00BA47CF /* DefaultSizes.swift */,
+			);
+			path = UISizes;
 			sourceTree = "<group>";
 		};
 		91F3912D22F9C9AF00D950A4 /* Repositories */ = {
@@ -702,6 +716,7 @@
 				91F3912822F9B00600D950A4 /* TermModel.swift in Sources */,
 				916BD9922316DCA200684737 /* HasGrade.swift in Sources */,
 				916D0B312316EC7B00E61BB8 /* LoginViewModelDependencies.swift in Sources */,
+				91DA0EA623263E5D00BA47CF /* DefaultSizes.swift in Sources */,
 				91833DB72304164D002C84E5 /* FinancialsTableViewCell.swift in Sources */,
 				912AC22F22F088D70019C8C9 /* StringHelper.swift in Sources */,
 				91F3912622F99C6600D950A4 /* CourseModel.swift in Sources */,
@@ -713,6 +728,7 @@
 				91560D9222FDDE9B005B1D42 /* RealmExtension.swift in Sources */,
 				911CA2DB22EF65DA00DC5348 /* BimayApiProtocol.swift in Sources */,
 				91833DBB230416E2002C84E5 /* FinancialsViewModel.swift in Sources */,
+				91DA0EA4232631A700BA47CF /* Screen.swift in Sources */,
 				9189D5D2230070AE00E45CC6 /* StringExtension.swift in Sources */,
 				911CA2DD22EF6D0F00DC5348 /* BimayApi.swift in Sources */,
 				916BD98E2316DC3B00684737 /* HasAuth.swift in Sources */,

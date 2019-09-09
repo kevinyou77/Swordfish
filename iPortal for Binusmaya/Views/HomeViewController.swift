@@ -20,7 +20,7 @@ class HomeViewController: ASViewController<ASDisplayNode> {
     }
     
     func setupUI () {
-        let origin = CGPoint(x: 0, y: 0)
+        let origin = CGPoint(x: 0, y: Screen.safeAreaTop)
         let size = CGSize(width: self.screenSize.width, height: self.screenSize.height)
         
         let scrollNode = ASScrollNode()
@@ -28,7 +28,7 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         scrollNode.automaticallyManagesContentSize = true
         scrollNode.frame = CGRect(origin: origin, size: size)
         
-        scrollNode.backgroundColor = UIColor.blue
+//        scrollNode.backgroundColor = UIColor.blue
         scrollNode.scrollableDirections = .init(arrayLiteral: [.up, .down])
         
         scrollNode.layoutSpecBlock = { node, constrainedSize -> ASLayoutSpec in
@@ -39,7 +39,7 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         wrapperViewNode.frame = CGRect(origin: origin, size: size)
         wrapperViewNode.addSubnode(scrollNode)
         
-        view.addSubnode(wrapperViewNode)
+        self.view.addSubnode(wrapperViewNode)
     }
     
     func getScrollNodeLayoutSpecBlock () -> ASLayoutSpec {
@@ -49,6 +49,7 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         
         scrollNodeWrapper.children = [
             self.profileBar(),
+            self.scheduleBar()
         ]
         
         return scrollNodeWrapper
@@ -56,31 +57,60 @@ class HomeViewController: ASViewController<ASDisplayNode> {
     
     func profileBar () -> ASLayoutSpec {
         let origin = CGPoint(x: 0, y: 0)
-        let size = CGSize(width: self.screenSize.width, height: 500)
+        
         let profileBarStackNode = ASStackLayoutSpec()
         profileBarStackNode.direction = .horizontal
-        profileBarStackNode.justifyContent = .center
+        profileBarStackNode.justifyContent = .spaceBetween
+        profileBarStackNode.alignItems = .center
+        profileBarStackNode.spacing = 40
         
         let profileBarUsername = ASTextNode()
+        let profileBarUsernameAttributes = [
+            NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 20)
+        ]
         profileBarUsername.frame = CGRect(origin: origin, size: CGSize(width: 40, height: 100))
-        profileBarUsername.attributedText = NSAttributedString(string: "Kevin Yulias", attributes: [:])
+        profileBarUsername.attributedText = NSAttributedString(
+            string: "Kevin Yulias",
+            attributes: profileBarUsernameAttributes as [NSAttributedString.Key : Any]
+        )
         
-        let profileBarImage = ASTextNode()
-        profileBarUsername.frame = CGRect(origin: origin, size: CGSize(width: 40, height: 100))
-        profileBarImage.attributedText = NSAttributedString(string: "Kevin Yuliass", attributes: [:])
+        let profileBarImage = ASImageNode()
+        profileBarImage.image = UIImage(named: "mock-profile")
+        profileBarImage.frame = CGRect(origin: origin, size: CGSize(width: 45, height: 45))
+        profileBarImage.style.maxHeight = ASDimensionMakeWithPoints(45)
+        profileBarImage.style.maxWidth = ASDimensionMakeWithPoints(45)
+        profileBarImage.layer.cornerRadius = profileBarImage.frame.height / 2
+        profileBarImage.layer.masksToBounds = false
+        profileBarImage.clipsToBounds = true
         
         profileBarStackNode.children = [
             profileBarUsername,
             profileBarImage
         ]
         
+        let size = CGSize(width: 500, height: 100)
         let profileBarBackground = ASDisplayNode()
         profileBarBackground.frame = CGRect(origin: origin, size: size)
-        profileBarBackground.backgroundColor = UIColor.green
+//        profileBarBackground.backgroundColor = UIColor.green
         
-        let profileBarWrapper = ASBackgroundLayoutSpec(child: profileBarStackNode, background: profileBarBackground)
+        let wrap = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), child: profileBarStackNode)
         
-        return profileBarWrapper
+        let profileBarWrapper = ASBackgroundLayoutSpec(child: wrap, background: profileBarBackground)
+        profileBarWrapper.style.maxWidth = ASDimensionMakeWithPoints(100)
+        
+        let profileBarInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        let profileBarInsetWrapper = ASInsetLayoutSpec(insets: profileBarInset, child: profileBarWrapper)
+        
+        return profileBarInsetWrapper
+    }
+    
+    func scheduleBar () -> ASLayoutSpec {
+        let schedulesStackNode = ASStackLayoutSpec()
+        schedulesStackNode.direction = .vertical
+        schedulesStackNode.frame = CGRect(
+        
+        let scheduleBarInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        let scheduleBarWrapper = ASInsetLayoutSpec(insets: scheduleBarInset, child: <#T##ASLayoutElement#>)
     }
 }
 

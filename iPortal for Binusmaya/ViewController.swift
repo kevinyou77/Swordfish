@@ -20,8 +20,6 @@ class ViewController: UITabBarController {
         _ = self.tabBarController?.viewControllers?.map { UINavigationController(rootViewController: $0) }
         let fontAttributes = [NSAttributedString.Key.font: UIFont(name: "Circular-Book", size: 11.0)!]
         UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
-        
-        
     }
     
     func setUpViewControllers () -> [UIViewController] {
