@@ -62,16 +62,15 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         profileBarStackNode.direction = .horizontal
         profileBarStackNode.justifyContent = .spaceBetween
         profileBarStackNode.alignItems = .center
-        profileBarStackNode.spacing = 40
         
         let profileBarUsername = ASTextNode()
-        let profileBarUsernameAttributes = [
-            NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 20)
+        let profileBarUsernameAttributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 20)!
         ]
         profileBarUsername.frame = CGRect(origin: origin, size: CGSize(width: 40, height: 100))
         profileBarUsername.attributedText = NSAttributedString(
             string: "Kevin Yulias",
-            attributes: profileBarUsernameAttributes as [NSAttributedString.Key : Any]
+            attributes: profileBarUsernameAttributes
         )
         
         let profileBarImage = ASImageNode()
@@ -104,13 +103,129 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         return profileBarInsetWrapper
     }
     
-    func scheduleBar () -> ASLayoutSpec {
+    func scheduleBarHeader() -> ASLayoutSpec {
+        let scheduleBarHeaderIcon = ASImageNode()
+        
+        let scheduleBarHeaderTextNode = ASTextNode()
+        let scheduleBarHeaderTextNodeAttribute: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 18)!,
+            NSAttributedString.Key.foregroundColor: Colors.primaryColor
+        ]
+        scheduleBarHeaderTextNode.attributedText = NSAttributedString(
+            string: "4 kelas",
+            attributes: scheduleBarHeaderTextNodeAttribute
+        )
+        
+        let scheduleHeaderStackNode = ASStackLayoutSpec()
+        scheduleHeaderStackNode.direction = .horizontal
+        scheduleHeaderStackNode.justifyContent = .start
+        
+        scheduleHeaderStackNode.children = [
+            scheduleBarHeaderIcon,
+            scheduleBarHeaderTextNode
+        ]
+        
+        return scheduleHeaderStackNode
+    }
+    
+    func scheduleBarDate () -> ASTextNode {
+        let dateTextNode = ASTextNode()
+        let dateTextNodeAttribute: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 18)!
+        ]
+        dateTextNode.attributedText = NSAttributedString(
+            string: "18:20",
+            attributes: dateTextNodeAttribute
+        )
+        
+        return dateTextNode
+    }
+    
+    func scheduleBarCell () -> ASLayoutSpec {
+        let scheduleBarCellCourseTitle = ASTextNode()
+        let scheduleBarCellCourseTitleAttribute: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 18)!
+        ]
+        scheduleBarCellCourseTitle.attributedText = NSAttributedString(
+            string: "Human Computer Interaction",
+            attributes: scheduleBarCellCourseTitleAttribute
+        )
+        
+        let scheduleBarCellCourseLocation = ASTextNode()
+        let scheduleBarCellCourseLocationAttribute: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.font: UIFont(name: "Circular-Book", size: 12)!
+        ]
+        scheduleBarCellCourseLocation.attributedText = NSAttributedString(
+            string: "ANGGREK",
+            attributes: scheduleBarCellCourseLocationAttribute
+        )
+        
+        let scheduleBarCellCourseRoom = ASTextNode()
+        let scheduleBarCellCourseRoomAttribute: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.font: UIFont(name: "Circular-Book", size: 12)!
+        ]
+        scheduleBarCellCourseRoom.attributedText = NSAttributedString(
+            string: "FA99",
+            attributes: scheduleBarCellCourseRoomAttribute
+        )
+        
+        let scheduleBarCellContent = ASStackLayoutSpec()
+        scheduleBarCellContent.style.maxWidth = ASDimensionMakeWithPoints(Screen.width)
+        scheduleBarCellContent.direction = .vertical
+        scheduleBarCellContent.alignItems = .start
+        scheduleBarCellContent.style.maxWidth = ASDimensionMakeWithPoints(Screen.width)
+        
+        let scheduleBarCellContentBottomStackView = ASStackLayoutSpec()
+        scheduleBarCellContentBottomStackView.direction = .horizontal
+        scheduleBarCellContentBottomStackView.spacing = 10
+        
+        scheduleBarCellContentBottomStackView.children = [
+            scheduleBarCellCourseLocation,
+            scheduleBarCellCourseRoom
+        ]
+        
+        scheduleBarCellContent.children = [
+            scheduleBarCellCourseTitle,
+            scheduleBarCellContentBottomStackView
+        ]
+        
+        let scheduleBarCellWrapper = ASStackLayoutSpec()
+        scheduleBarCellWrapper.direction = .horizontal
+        scheduleBarCellWrapper.alignItems = .center
+        scheduleBarCellWrapper.spacing = 10
+
+        scheduleBarCellWrapper.children = [
+            self.scheduleBarDate(),
+            scheduleBarCellContent,
+        ]
+        
+        return scheduleBarCellWrapper
+    }
+    
+    func scheduleBarContent () -> ASLayoutSpec {
         let schedulesStackNode = ASStackLayoutSpec()
         schedulesStackNode.direction = .vertical
-        schedulesStackNode.frame = CGRect(
+        schedulesStackNode.spacing = 6
         
-        let scheduleBarInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        let scheduleBarWrapper = ASInsetLayoutSpec(insets: scheduleBarInset, child: <#T##ASLayoutElement#>)
+        schedulesStackNode.children = [
+            self.scheduleBarCell()
+        ]
+        
+        return schedulesStackNode
+    }
+    
+    func scheduleBar () -> ASLayoutSpec {
+        let schedulesStackNode = self.scheduleBarContent()
+        // schedulebarcontent should receive a dictionary, loops in schedulebarcontent
+        
+        schedulesStackNode.children = [
+            self.scheduleBarHeader(),
+            self.scheduleBarContent()
+        ]
+        
+        let scheduleBarInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        let scheduleBarWrapper = ASInsetLayoutSpec(insets: scheduleBarInset, child: schedulesStackNode)
+        
+        return scheduleBarWrapper
     }
 }
-

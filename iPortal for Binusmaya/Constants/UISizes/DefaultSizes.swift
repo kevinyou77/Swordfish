@@ -12,8 +12,4 @@ struct DefaultSizes {
     static var origin: CGPoint {
         return CGPoint(x: 0, y: 0)
     }
-    
-    static var inset: UIEdgeInsets {
-        return UIEdgeInsets(
-    }
 }

@@ -57,10 +57,12 @@
 		91C8B26422ECAF40009DC08A /* iPortal_for_BinusmayaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8B26322ECAF40009DC08A /* iPortal_for_BinusmayaUITests.swift */; };
 		91D627932313EFD8007D44EF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D627922313EFD8007D44EF /* HomeViewController.swift */; };
 		91D7187D22FD5765004DC47D /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7187C22FD5765004DC47D /* SchedulesViewModel.swift */; };
-		91D7187F22FD5A73004DC47D /* SchedulesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7187E22FD5A73004DC47D /* SchedulesCellViewModel.swift */; };
 		91DA0EA4232631A700BA47CF /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA0EA3232631A700BA47CF /* Screen.swift */; };
 		91DA0EA623263E5D00BA47CF /* DefaultSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA0EA523263E5D00BA47CF /* DefaultSizes.swift */; };
+		91DA0EA8232643D400BA47CF /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA0EA7232643D400BA47CF /* Fonts.swift */; };
 		91DD30B02306920E0099FF6A /* ScheduleSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DD30AF2306920E0099FF6A /* ScheduleSectionTableViewCell.swift */; };
+		91ED46842327785000DE3467 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ED46832327785000DE3467 /* Colors.swift */; };
+		91ED4686232778E100DE3467 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ED4685232778E100DE3467 /* UIColorExtension.swift */; };
 		91F24A1F22FC815000D6C831 /* RxNetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F24A1E22FC815000D6C831 /* RxNetworkHelper.swift */; };
 		91F3912622F99C6600D950A4 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F3912522F99C6600D950A4 /* CourseModel.swift */; };
 		91F3912822F9B00600D950A4 /* TermModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F3912722F9B00600D950A4 /* TermModel.swift */; };
@@ -150,10 +152,12 @@
 		91C8B26522ECAF40009DC08A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91D627922313EFD8007D44EF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		91D7187C22FD5765004DC47D /* SchedulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesViewModel.swift; sourceTree = "<group>"; };
-		91D7187E22FD5A73004DC47D /* SchedulesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesCellViewModel.swift; sourceTree = "<group>"; };
 		91DA0EA3232631A700BA47CF /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		91DA0EA523263E5D00BA47CF /* DefaultSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSizes.swift; sourceTree = "<group>"; };
+		91DA0EA7232643D400BA47CF /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		91DD30AF2306920E0099FF6A /* ScheduleSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSectionTableViewCell.swift; sourceTree = "<group>"; };
+		91ED46832327785000DE3467 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		91ED4685232778E100DE3467 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		91F24A1E22FC815000D6C831 /* RxNetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNetworkHelper.swift; sourceTree = "<group>"; };
 		91F3912522F99C6600D950A4 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		91F3912722F9B00600D950A4 /* TermModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermModel.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 				9189D5D1230070AE00E45CC6 /* StringExtension.swift */,
 				9189D5D32300744700E45CC6 /* DateExtension.swift */,
 				911FAA782302E261001A725A /* StringOrInt.swift */,
+				91ED4685232778E100DE3467 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -294,6 +299,15 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		91A424B72327781D0036C1A5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				91ED46822327784500DE3467 /* Colors */,
+				91DA0EA22326318900BA47CF /* UISizes */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		91C8B23722ECAF3D009DC08A = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +333,7 @@
 		91C8B24222ECAF3D009DC08A /* iPortal for Binusmaya */ = {
 			isa = PBXGroup;
 			children = (
+				91A424B72327781D0036C1A5 /* Constants */,
 				916D0B3A2317A7A700E61BB8 /* Fonts */,
 				9158D5BA231153BE00B300AE /* Dependencies */,
 				91560D9022FDDE89005B1D42 /* Extensions */,
@@ -360,7 +375,6 @@
 		91D7187922FD522E004DC47D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				91DA0EA22326318900BA47CF /* UISizes */,
 				91D7187A22FD5242004DC47D /* Cells */,
 				916213F022ED8071007D4265 /* LoginViewController.swift */,
 				91C6BB27230181F700EA5FEB /* GPAViewController.swift */,
@@ -385,7 +399,6 @@
 		91D7187B22FD572E004DC47D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				91D7187E22FD5A73004DC47D /* SchedulesCellViewModel.swift */,
 				91C6BB25230170DE00EA5FEB /* GPAViewModel.swift */,
 				91833DBA230416E2002C84E5 /* FinancialsViewModel.swift */,
 				91D7187C22FD5765004DC47D /* SchedulesViewModel.swift */,
@@ -399,8 +412,17 @@
 			children = (
 				91DA0EA3232631A700BA47CF /* Screen.swift */,
 				91DA0EA523263E5D00BA47CF /* DefaultSizes.swift */,
+				91DA0EA7232643D400BA47CF /* Fonts.swift */,
 			);
 			path = UISizes;
+			sourceTree = "<group>";
+		};
+		91ED46822327784500DE3467 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				91ED46832327785000DE3467 /* Colors.swift */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 		91F3912D22F9C9AF00D950A4 /* Repositories */ = {
@@ -697,6 +719,7 @@
 				91833DB923041668002C84E5 /* FinancialsViewController.swift in Sources */,
 				914B316A2305502000744764 /* LoginViewModel.swift in Sources */,
 				91281E3B2301CBBD001AFFDA /* GPATableViewCell.swift in Sources */,
+				91ED46842327785000DE3467 /* Colors.swift in Sources */,
 				916213F122ED8071007D4265 /* LoginViewController.swift in Sources */,
 				91D7187D22FD5765004DC47D /* SchedulesViewModel.swift in Sources */,
 				91F3913322F9EB9A00D950A4 /* TermRepository.swift in Sources */,
@@ -709,7 +732,7 @@
 				916D0B2D2316E55000E61BB8 /* FinancialsViewModelDependencies.swift in Sources */,
 				91833DC123041776002C84E5 /* FinancialModel.swift in Sources */,
 				91C8B24622ECAF3D009DC08A /* ViewController.swift in Sources */,
-				91D7187F22FD5A73004DC47D /* SchedulesCellViewModel.swift in Sources */,
+				91DA0EA8232643D400BA47CF /* Fonts.swift in Sources */,
 				91F3913122F9CCFE00D950A4 /* UserRepository.swift in Sources */,
 				91F3912A22F9B5F200D950A4 /* TermInteractor.swift in Sources */,
 				91C6BB28230181F700EA5FEB /* GPAViewController.swift in Sources */,
@@ -721,6 +744,7 @@
 				912AC22F22F088D70019C8C9 /* StringHelper.swift in Sources */,
 				91F3912622F99C6600D950A4 /* CourseModel.swift in Sources */,
 				911CA2D722EF57AC00DC5348 /* UserModel.swift in Sources */,
+				91ED4686232778E100DE3467 /* UIColorExtension.swift in Sources */,
 				91F3912C22F9B60800D950A4 /* CourseInteractor.swift in Sources */,
 				91C6BB242301645500EA5FEB /* GradeRepository.swift in Sources */,
 				91C8B24422ECAF3D009DC08A /* AppDelegate.swift in Sources */,
