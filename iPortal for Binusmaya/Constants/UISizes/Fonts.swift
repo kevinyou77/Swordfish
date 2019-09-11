@@ -13,11 +13,17 @@ struct Fonts {
         case defaultSize = 16
     }
     
-    var defaultFont: UIFont {
+    static var primaryFontName: String = "Circular-Bold"
+    
+    static var headerFont: UIFont {
+        return UIFont(name: "Circular-Bold", size: 18)!
+    }
+    
+    static var defaultFont: UIFont {
         return UIFont(name: "Circular-Bold", size: 16)!
     }
     
-    var smallFont: UIFont {
+    static var smallFont: UIFont {
         return UIFont(name: "Circular-Book", size: 12)!
     }
 }
