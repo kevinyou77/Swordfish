@@ -6,29 +6,23 @@
 //  Copyright © 2019 Kevin Yulias. All rights reserved.
 //
 
-import UIKit
 import AsyncDisplayKit
 
 class HomeViewController: ASViewController<ASDisplayNode> {
-    
-    var screenSize: CGRect = CGRect()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.screenSize = UIScreen.main.bounds
         self.setupUI()
     }
     
     func setupUI () {
         let origin = CGPoint(x: 0, y: Screen.safeAreaTop)
-        let size = CGSize(width: self.screenSize.width, height: self.screenSize.height)
+        let size = CGSize(width: Screen.width, height: Screen.height)
         
         let scrollNode = ASScrollNode()
         scrollNode.automaticallyManagesSubnodes = true
         scrollNode.automaticallyManagesContentSize = true
         scrollNode.frame = CGRect(origin: origin, size: size)
-        
-//        scrollNode.backgroundColor = UIColor.blue
+
         scrollNode.scrollableDirections = .init(arrayLiteral: [.up, .down])
         
         scrollNode.layoutSpecBlock = { node, constrainedSize -> ASLayoutSpec in
@@ -44,8 +38,8 @@ class HomeViewController: ASViewController<ASDisplayNode> {
     
     func getScrollNodeLayoutSpecBlock () -> ASLayoutSpec {
         let scrollNodeWrapper = ASStackLayoutSpec.vertical()
-        scrollNodeWrapper.style.width = ASDimensionMakeWithPoints(self.screenSize.width)
-        scrollNodeWrapper.style.height = ASDimensionMakeWithPoints(self.screenSize.height)
+        scrollNodeWrapper.style.width = ASDimensionMakeWithPoints(Screen.width)
+        scrollNodeWrapper.style.height = ASDimensionMakeWithPoints(Screen.height)
         
         scrollNodeWrapper.children = [
             self.profileBar(),
@@ -56,6 +50,45 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         return scrollNodeWrapper
     }
     
+    // MARK: GRADE BAR
+    func gradeBar () -> ASLayoutSpec {
+        let currentGPATextNode = ASTextNode()
+        let currentGPATextNodeAttribute: [NSAttributedString.Key : Any] = [:]
+        currentGPATextNode.attributedText = NSAttributedString(
+            string: "3.26", attributes: currentGPATextNodeAttribute
+        )
+        
+        let gradeBarTitle = ASStackLayoutSpec()
+        gradeBarTitle.direction = .horizontal
+        
+        let gradeBarStackNode = ASStackLayoutSpec()
+        gradeBarStackNode.direction = .vertical
+        
+        return gradeBarStackNode
+    }
+    
+    // MARK: GPA BAR
+    func gpaBar () -> ASLayoutSpec {
+        let gpaBarWrapper = ASStackLayoutSpec()
+        
+        return gpaBarWrapper
+    }
+    
+    // MARK: ACTIVITY POINT BAR
+    func activityPointBar () -> ASLayoutSpec {
+        let activityPointBar = ASStackLayoutSpec()
+        
+        return activityPointBar
+    }
+    
+    // MARK: COMMUNITY SERVICE BAR
+    func communityServiceBar () -> ASLayoutSpec {
+        let communityServiceBar = ASStackLayoutSpec()
+        
+        return communityServiceBar
+    }
+    
+    // MARK: PAYMENT BAR
     func paymentBar () -> ASLayoutSpec {
         let paymentBarIcon = ASImageNode()
         paymentBarIcon.image = UIImage(named: "mock-profile")
@@ -88,7 +121,10 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         )
         
         let paymentBarCellContentDeadline = ASTextNode()
-        let paymentBarCellContentDeadlineAttribute: [NSAttributedString.Key: Any] = [:]
+        let paymentBarCellContentDeadlineAttribute: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.font: Fonts.smallFont,
+            NSAttributedString.Key.foregroundColor : Colors.secondaryColor
+        ]
         paymentBarCellContentDeadline.attributedText = NSAttributedString(
             string: "tertagih besok",
             attributes: paymentBarCellContentDeadlineAttribute
@@ -97,7 +133,7 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         let paymentBarCellContent = ASStackLayoutSpec()
         paymentBarCellContent.direction = .horizontal
         paymentBarCellContent.alignItems = .end
-        paymentBarCellContent.spacing = 10
+        paymentBarCellContent.spacing = 5
         paymentBarCellContent.children = [
             paymentBarCellContentAmount,
             paymentBarCellContentDeadline
@@ -118,6 +154,7 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         return paymentBarWrapperInset
     }
     
+    // MARK: PROFILE BAR
     func profileBar () -> ASLayoutSpec {
         let origin = CGPoint(x: 0, y: 0)
         
@@ -153,7 +190,6 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         let size = CGSize(width: 500, height: 100)
         let profileBarBackground = ASDisplayNode()
         profileBarBackground.frame = CGRect(origin: origin, size: size)
-//        profileBarBackground.backgroundColor = UIColor.green
         
         let wrap = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), child: profileBarStackNode)
         
@@ -165,6 +201,8 @@ class HomeViewController: ASViewController<ASDisplayNode> {
         
         return profileBarInsetWrapper
     }
+    
+    // MARK: Schedule bar
     
     func scheduleBarHeader() -> ASLayoutSpec {
         let scheduleBarHeaderIcon = ASImageNode()

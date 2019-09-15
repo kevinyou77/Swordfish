@@ -102,7 +102,8 @@ class GPAViewController: UIViewController, UITableViewDelegate {
         }
         
         self.gpaViewModel.gradeModels
-            .bind (to: self.gpaTableView.rx.items(dataSource: dataSource))
+            .asDriver()
+            .drive(self.gpaTableView.rx.items(dataSource: dataSource))
             .disposed(by: self.disposeBag)
     }
     

@@ -63,12 +63,6 @@ class SchedulesTableViewController: UITableViewController {
         self.tableView.refreshControl = self.rc
     }
     
-    @objc func onRefresh (_ sender: Any) {
-        self.schedulesViewModel.sync { event in
-            self.courses.accept(event)
-            self.rc.endRefreshing()
-        }
-    }
     
     func setTableView () {
         self.tableView.delegate = self
@@ -76,11 +70,19 @@ class SchedulesTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
        
         self.courses
-            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .asDriver()
+            .drive(self.tableView.rx.items(dataSource: dataSource))
             .disposed(by: self.disposeBag)
         
         self.schedulesViewModel.getScheduleData { courses in
             self.courses.accept(courses)
+        }
+    }
+    
+    @objc func onRefresh (_ sender: Any) {
+        self.schedulesViewModel.sync { event in
+            self.courses.accept(event)
+            self.rc.endRefreshing()
         }
     }
     

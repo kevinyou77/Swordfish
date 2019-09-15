@@ -52,10 +52,9 @@ class FinancialsViewController: UIViewController {
         self.financialsTableView.rowHeight = UITableView.automaticDimension
         
         self.financialModels
-            .bind(to: self.financialsTableView.rx.items(cellIdentifier: "FinancialsTableViewCell", cellType: FinancialsTableViewCell.self)) { row, model, cell in
-
+            .asDriver()
+            .drive(self.financialsTableView.rx.items(cellIdentifier: "FinancialsTableViewCell", cellType: FinancialsTableViewCell.self)) { row, model, cell in
                 cell.feeAmount.text = "Rp. \(model.item_amt)"
-                
                 cell.feeDueDate.text = model.due_dt[0...9].convertDateString()
                 
                 if model.Status == "Paid" {

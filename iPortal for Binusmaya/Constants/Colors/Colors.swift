@@ -15,4 +15,12 @@ struct Colors {
         let blue = CGFloat(255)
         return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
+    
+    static var secondaryColor: UIColor {
+        let red = CGFloat(228.0 / 255)
+        let green = CGFloat(152.0 / 255)
+        let blue = CGFloat(70.0 / 255)
+        
+        return UIColor(red: red, green: green, blue: blue, alpha: 1)
+    }
 }
