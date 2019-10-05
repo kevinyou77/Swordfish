@@ -23,7 +23,15 @@ struct Fonts {
         return UIFont(name: "Circular-Bold", size: 16)!
     }
     
+    static var mediumFont: UIFont {
+        return UIFont(name: "Circular-Bold", size: 16)!
+    }
+    
     static var smallFont: UIFont {
         return UIFont(name: "Circular-Book", size: 12)!
+    }
+    
+    static var boldSmallFont: UIFont {
+        return UIFont(name: "Circular-Bold", size: 12)!
     }
 }
