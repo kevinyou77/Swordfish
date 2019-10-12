@@ -13,12 +13,12 @@ enum StringOrInt : Codable {
     
     func encode(to encoder: Encoder) throws {
         switch self {
-        case .string(let str):
-            var container = encoder.singleValueContainer()
-            try container.encode(str)
-        case .integer(let int):
-            var container = encoder.singleValueContainer()
-            try container.encode(int)
+            case .string(let str):
+                var container = encoder.singleValueContainer()
+                try container.encode(str)
+            case .integer(let int):
+                var container = encoder.singleValueContainer()
+                try container.encode(int)
         }
     }
     

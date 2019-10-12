@@ -14,7 +14,7 @@ import Realm
 import RxDataSources
 
 class FinancialsViewModel {
-    typealias Dependencies = HasFinancials & HasAuth
+    typealias Dependencies = FinancialsViewModelDependencies
 
     let financialInteractor: FinancialInteractor
     let authInteractor: AuthInteractor

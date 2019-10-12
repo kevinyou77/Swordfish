@@ -14,7 +14,7 @@ import Realm
 import RxDataSources
 
 class SchedulesViewModel {
-    typealias Dependencies = HasAuth & HasCourse
+    typealias Dependencies = SchedulesViewModelDependencies
 
     let authInteractor: AuthInteractor
     let courseInteractor: CourseInteractor

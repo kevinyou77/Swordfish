@@ -12,7 +12,7 @@ import RxCocoa
 import RxDataSources
 
 class LoginViewModel {
-    typealias Dependencies = HasFinancials & HasAuth & HasCourse & HasTerm & HasGrade
+    typealias Dependencies = LoginViewModelDependencies
 
     let financialInteractor: FinancialInteractor
     let authInteractor: AuthInteractor

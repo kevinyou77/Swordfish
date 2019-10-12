@@ -151,9 +151,7 @@ public class GradeInteractor {
                 )
                 gradeSections.append(sectionModel)
             }
-
             termsCount = termsCount - 1
-                
         }
         
         return gradeSections

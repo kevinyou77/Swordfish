@@ -14,7 +14,7 @@ import Realm
 import RxDataSources
 
 class GPAViewModel {
-    typealias Dependencies = HasAuth & HasGrade & HasTerm
+    typealias Dependencies = GPAViewModelDependencies
     let gradeInteractor: GradeInteractor
     let termInteractor: TermInteractor
     let authInteractor: AuthInteractor
