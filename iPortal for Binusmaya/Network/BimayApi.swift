@@ -24,15 +24,15 @@ struct Endpoints {
     }
     
     func getLoaderPhp (withSerial serial: String) -> URL? {
-        return URL(string: "https://binusmaya.binus.ac.id/login/loader.php?serial=\(serial)")
+        return URL(string: "\(baseUrl!)/login/loader.php?serial=\(serial)")
     }
     
     func getStudentGrade (by term: String) -> URL? {
-        return URL(string: "https://binusmaya.binus.ac.id/services/ci/index.php/scoring/ViewGrade/getStudentScore/\(term)")
+        return URL(string: "\(baseUrl!)/services/ci/index.php/scoring/ViewGrade/getStudentScore/\(term)")
     }
     
     var getFinancialSummary: URL? {
-        return URL(string: "https://binusmaya.binus.ac.id/services/ci/index.php/financial/getFinancialSummary")
+        return URL(string: "\(baseUrl!)/services/ci/index.php/financial/getFinancialSummary")
     }
 }
 
