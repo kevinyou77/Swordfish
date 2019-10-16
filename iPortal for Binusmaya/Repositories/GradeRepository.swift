@@ -67,9 +67,4 @@ public class GradeRepository {
                 .filter("strm contains '\(term)'")
                 .toArray()
     }
-    
-    func getLastCulmulativeGPA () -> String {
-        let realm = try! Realm()
-        return realm.objects(CourseGradeModel.self).first!.GPA_CUM
-    }
 }

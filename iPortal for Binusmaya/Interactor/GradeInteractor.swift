@@ -156,8 +156,4 @@ public class GradeInteractor {
         
         return gradeSections
     }
-    
-    func getLastCulmulativeGPA () -> String {
-        return self.gradeRepository.getLastCulmulativeGPA()
-    }   
 }
