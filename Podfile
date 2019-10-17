@@ -8,7 +8,7 @@ target 'iPortal for Binusmaya' do
   # Pods for iPortal for
   pod 'Texture', '>= 2.0'
   pod 'SwiftSoup'
-  pod 'RealmSwift'
+  pod 'RealmSwift', '>= 3.19.0'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'RxRealm'
