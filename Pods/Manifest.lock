@@ -15,11 +15,11 @@ PODS:
   - PINRemoteImage/PINCache (3.0.0-beta.13):
     - PINCache (= 3.0.1-beta.6)
     - PINRemoteImage/Core
-  - Realm (3.15.0):
-    - Realm/Headers (= 3.15.0)
-  - Realm/Headers (3.15.0)
-  - RealmSwift (3.15.0):
-    - Realm (= 3.15.0)
+  - Realm (3.19.0):
+    - Realm/Headers (= 3.19.0)
+  - Realm/Headers (3.19.0)
+  - RealmSwift (3.19.0):
+    - Realm (= 3.19.0)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -56,7 +56,7 @@ PODS:
     - Texture/Core
 
 DEPENDENCIES:
-  - RealmSwift
+  - RealmSwift (>= 3.19.0)
   - RxCocoa (~> 5)
   - RxDataSources (~> 4.0)
   - RxRealm
@@ -65,13 +65,11 @@ DEPENDENCIES:
   - Texture (>= 2.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Differentiator
     - PINCache
     - PINOperation
     - PINRemoteImage
-    - Realm
-    - RealmSwift
     - RxCocoa
     - RxDataSources
     - RxRealm
@@ -79,14 +77,17 @@ SPEC REPOS:
     - RxSwift
     - SwiftSoup
     - Texture
+  trunk:
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
   PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
   PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
-  Realm: 9b834e1be6062f544805252c812348872dc5d4ed
-  RealmSwift: 8a41886f8ab6efef9eb8df97de2f2bb911561a79
+  Realm: 995d585bcf699aaff226715886c849a29dd3d07f
+  RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRealm: 1e81dcfca1fb50c3e9b3e1f8102bc875c5156a2e
@@ -95,6 +96,6 @@ SPEC CHECKSUMS:
   SwiftSoup: 4fe21f65cdbfa3a40559047016b7962b88d29279
   Texture: 8ecf6984065a1e54f06bf97b349ecca28582acd7
 
-PODFILE CHECKSUM: c84fa9bcd4d45b2e38fa5683cb3626f94ab07a12
+PODFILE CHECKSUM: 258bbbf95740d46d1bd1aca62c596e7a89db4c09
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.3
