@@ -46,7 +46,9 @@ class FinancialsViewModel {
             }
             .observeOn(MainScheduler.instance)
             .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .utility))
-            .subscribe(onNext: { res in
+            .subscribe(onNext: { [weak self] res in
+                guard let self = self else { return }
+
                 self.getFinancials { model in
                     onDataReceived(model)
                 }

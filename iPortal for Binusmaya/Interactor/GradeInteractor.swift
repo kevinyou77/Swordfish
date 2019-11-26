@@ -126,7 +126,7 @@ public class GradeInteractor {
         for val in terms {
             let grades = self.gradeRepository.getGrades(by: val.value)
                 
-            for grade in grades  {
+            for grade in grades {
                 models.append(grade)
             }
         }

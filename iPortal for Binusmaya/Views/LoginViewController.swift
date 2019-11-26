@@ -35,6 +35,17 @@ class LoginViewController: UIViewController {
         loginBtn.clipsToBounds = true
     }
     
+    func assignNewRootController () {
+        let appDelegateTemp = UIApplication.shared.delegate as? AppDelegate
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+
+        appDelegateTemp?.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "viewController") as! ViewController
+    }
+    
+    deinit {
+        print("login dismissed")
+    }
+    
     func setupButton () {
         _ = self.loginBtn.rx.tap
             .bind { [weak self] in
@@ -45,18 +56,16 @@ class LoginViewController: UIViewController {
                 
                 if username == "" || password == "" { self.loginBtn.setTitle("Fill something", for: .normal) }
                 
-                _ = self.loginViewModel.getAllData(username: username, password: password)
-                    .subscribe(
-                        onCompleted: {
-                            UserDefaults.standard.set(true, forKey: "isLoggedIn")
-                            DispatchQueue.main.async {
-                                self.performSegue(withIdentifier: "mainViewController", sender: self)
-                            }
+                _ = self.loginViewModel.getAllData(username: username, password: password) { [weak self] in
+                        guard let self = self else { return }
+                    
+                        UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                        self.dismiss(animated: true) {
+                            self.performSegue(withIdentifier: "mainViewController", sender: self)
                         }
-                    )
-                    .disposed(by: self.disposeBag)
-                }
-                .disposed(by: self.disposeBag)
+                    }
+            }
+            .disposed(by: self.disposeBag)
     }
 
 

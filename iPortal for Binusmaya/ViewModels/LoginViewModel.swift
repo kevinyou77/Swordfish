@@ -75,18 +75,26 @@ class LoginViewModel {
         
     }
     
-    func getAllData (username: String, password: String) -> Observable<[GradeModel]> {
-        return self.getScheduleData(username: username, password: password)
+    func getAllData (username: String, password: String, _ onComplete: @escaping () -> ()) {
+        _ = self.getScheduleData(username: username, password: password)
             .flatMap { [weak self] schedules -> Observable<[FinancialModel]> in
                 guard let self = self else { return Observable.empty() }
                 
                 return self.getFinancials()
             }
             .take(1)
-            .flatMap { [weak self] gpa -> Observable<[GradeModel]> in
+            .flatMap { [weak self] financials -> Observable<[GradeModel]> in
                 guard let self = self else { return Observable.empty() }
                 
                 return self.getGPA()
             }
+            .observeOn(MainScheduler.instance)
+            .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInteractive))
+            .subscribe(
+                onCompleted: {
+                    onComplete()
+                }
+            )
+            .disposed(by: self.disposeBag)
     }
 }

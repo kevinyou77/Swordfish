@@ -35,7 +35,6 @@ extension String {
         return convert(dateString: self, fromDateFormat: "yyyy-MM-dd", toDateFormat: "dd MMM yyyy")
     }
     
-    
     func convert(dateString: String, fromDateFormat: String, toDateFormat: String) -> String? {
         
         let fromDateFormatter = DateFormatter()
