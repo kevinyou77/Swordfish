@@ -20,7 +20,7 @@ class LoginViewModel {
     let termInteractor: TermInteractor
     let gradeInteractor: GradeInteractor
     let disposeBag: DisposeBag
-    var financialModels =  BehaviorRelay<[FinancialModel]>(value: [])
+    var financialModels = BehaviorRelay<[FinancialModel]>(value: [])
     
     var cookies: String
     
@@ -72,7 +72,6 @@ class LoginViewModel {
                 
                 return self.gradeInteractor.getAllGradesFromApi()
             }
-        
     }
     
     func getAllData (username: String, password: String, _ onComplete: @escaping () -> ()) {

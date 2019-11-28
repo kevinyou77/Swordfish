@@ -13,20 +13,21 @@ class HomeViewController: ASViewController<ASDisplayNode> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.setupUI()
     }
     
     func setupUI () {
+        let tabBarHeight = self.tabBarController?.tabBar.frame.size.height ?? 0
+        let calculatedHeight = Screen.height - tabBarHeight - 40
+
         let origin = CGPoint(x: 0, y: Screen.safeAreaTop)
-        let size = CGSize(width: Screen.width, height: Screen.height)
+        let size = CGSize(width: Screen.width, height: calculatedHeight)
         
         let scrollNode = ASScrollNode()
         scrollNode.automaticallyManagesSubnodes = true
         scrollNode.automaticallyManagesContentSize = true
         scrollNode.frame = CGRect(origin: origin, size: size)
-
-        scrollNode.scrollableDirections = .init(arrayLiteral: [.up, .down])
         
         scrollNode.layoutSpecBlock = { node, constrainedSize -> ASLayoutSpec in
             return self.getScrollNodeLayoutSpecBlock()
@@ -41,8 +42,6 @@ class HomeViewController: ASViewController<ASDisplayNode> {
     
     func getScrollNodeLayoutSpecBlock () -> ASLayoutSpec {
         let scrollNodeWrapper = ASStackLayoutSpec.vertical()
-        scrollNodeWrapper.style.width = ASDimensionMakeWithPoints(Screen.width)
-        scrollNodeWrapper.style.height = ASDimensionMakeWithPoints(Screen.height)
         
         scrollNodeWrapper.children = [
             self.homeViewComponents.getProfileBar(),

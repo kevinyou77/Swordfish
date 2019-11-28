@@ -20,38 +20,6 @@ class GPAViewController: UIViewController, UITableViewDelegate {
     let disposeBag = DisposeBag()
     let rc = UIRefreshControl()
     var gradeModels =  BehaviorRelay<[SectionModel<String, CourseGradeModel>]>(value: [])
-    var dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, CourseGradeModel>>(
-        configureCell: { (dataSource, tv, indexPath, item) in
-            let cell = tv.dequeueReusableCell(withIdentifier: "GPATableViewCell", for: indexPath) as! GPATableViewCell
-            
-            cell.courseTitle.text = item.courseTitle
-            cell.courseGrade.text = item.course_grade
-
-            var labels = [UILabel]()
-            for val in item.grades {
-                let label = UILabel()
-                label.font = UIFont(name: "Circular-Book", size: 13)
-                
-                let lowerBound = val.grade.indexOf(char: "(")! + 1
-                let upperBound = val.grade.count - 2
-                let extractedGradeString = val.grade[lowerBound...upperBound]
-                
-                label.text = "\(val.lam) : \(extractedGradeString)"
-                
-                labels.append(label)
-            }
-            
-            for val in cell.scoreStackView.arrangedSubviews {
-                val.removeFromSuperview()
-            }
-            
-            for val in labels  {
-                cell.scoreStackView.addArrangedSubview(val)
-            }
-            
-            return cell
-        }
-    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,13 +65,9 @@ class GPAViewController: UIViewController, UITableViewDelegate {
         
         self.gpaViewModel.getGPA()
         
-        self.dataSource.titleForHeaderInSection = { dataSource, index in
-            return self.dataSource.sectionModels[index].model
-        }
-        
         self.gpaViewModel.gradeModels
             .asDriver()
-            .drive(self.gpaTableView.rx.items(dataSource: dataSource))
+            .drive(self.gpaTableView.rx.items(dataSource: self.gpaViewModel.dataSource))
             .disposed(by: self.disposeBag)
     }
     
@@ -116,7 +80,7 @@ class GPAViewController: UIViewController, UITableViewDelegate {
             semesterLabel.frame = CGRect.init(x: 20, y: 0, width: headerView.frame.width, height: headerView.center.y)
             semesterLabel.font = semesterLabel.font.withSize(15)
             semesterLabel.attributedText = NSAttributedString(
-                string: self.dataSource[section].model,
+                string: self.gpaViewModel.dataSource[section].model,
                 attributes: [
                     NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)!
                 ]
@@ -127,7 +91,7 @@ class GPAViewController: UIViewController, UITableViewDelegate {
         
             averageGPA.frame = CGRect.init(x: headerView.frame.midX - 20, y: 0, width: headerView.frame.midX, height: headerView.center.y)
         
-            let str = "Semester GPA: \(self.dataSource[section].items[section].GPA_CUR)"
+        let str = "Semester GPA: \(self.gpaViewModel.dataSource[section].items[section].GPA_CUR)"
             averageGPA.attributedText = NSAttributedString(
                 string: str,
                 attributes: [

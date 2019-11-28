@@ -17,6 +17,14 @@ protocol HomeViewComponentsProtocol {
 }
 
 class HomeViewComponents: HomeViewComponentsProtocol {
+    private var schedulesBar: SchedulesBar
+    private var profileBar: ProfileBar
+    
+    init () {
+        self.schedulesBar = SchedulesBar()
+        self.profileBar = ProfileBar()
+    }
+    
     func getTaskBar () -> ASLayoutSpec {
         return taskBar()
     }
@@ -30,10 +38,10 @@ class HomeViewComponents: HomeViewComponentsProtocol {
     }
     
     func getScheduleBar () -> ASLayoutSpec {
-        return scheduleBar()
+        return self.schedulesBar.render()
     }
     
     func getProfileBar () -> ASLayoutSpec {
-        return profileBar()
+        return self.profileBar.render()
     }
 }

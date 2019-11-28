@@ -42,30 +42,37 @@ class LoginViewController: UIViewController {
         appDelegateTemp?.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "viewController") as! ViewController
     }
     
-    deinit {
-        print("login dismissed")
+    func handleOnAllDataReceived () {
+        self.loginBtn.setTitle("Loading...", for: .normal)
+            
+        UserDefaults.standard.set(true, forKey: "isLoggedIn")
+        self.dismiss(animated: true) {
+            self.performSegue(withIdentifier: "mainViewController", sender: self)
+        }
+    }
+    
+    func handleLoginButton () {
+        let username = self.usernameInput.text ?? ""
+        let password = self.passwordInput.text ?? ""
+            
+        if username == "" || password == "" {
+            self.loginBtn.setTitle("Fill something", for: .normal)
+        }
+            
+        self.loginViewModel.getAllData(username: username, password: password) { [weak self] in
+            guard let self = self else { return }
+
+            self.handleOnAllDataReceived()
+        }
     }
     
     func setupButton () {
-        _ = self.loginBtn.rx.tap
-            .bind { [weak self] in
-                guard let self = self else { return }
-                
-                let username = self.usernameInput.text ?? ""
-                let password = self.passwordInput.text ?? ""
-                
-                if username == "" || password == "" { self.loginBtn.setTitle("Fill something", for: .normal) }
-                
-                _ = self.loginViewModel.getAllData(username: username, password: password) { [weak self] in
-                        guard let self = self else { return }
-                    
-                        UserDefaults.standard.set(true, forKey: "isLoggedIn")
-                        self.dismiss(animated: true) {
-                            self.performSegue(withIdentifier: "mainViewController", sender: self)
-                        }
-                    }
-            }
-            .disposed(by: self.disposeBag)
+        self.loginBtn.rx.tap.bind { [weak self] in
+            guard let self = self else { return }
+            
+            self.handleLoginButton()
+        }
+        .disposed(by: self.disposeBag)
     }
 
 

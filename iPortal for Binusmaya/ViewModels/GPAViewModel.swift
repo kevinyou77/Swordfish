@@ -21,6 +21,7 @@ class GPAViewModel {
     let disposeBag: DisposeBag
     var gradeModels: BehaviorRelay<[SectionModel<String, CourseGradeModel>]>
     var culmulativeGPA: String
+    var dataSource: RxTableViewSectionedReloadDataSource<SectionModel<String, CourseGradeModel>>
 
     init (dependencies: Dependencies) {
         self.gradeInteractor = dependencies.gradeInteractor
@@ -29,6 +30,42 @@ class GPAViewModel {
         self.disposeBag = DisposeBag()
         self.gradeModels =  BehaviorRelay<[SectionModel<String, CourseGradeModel>]>(value: [])
         self.culmulativeGPA = ""
+        self.dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, CourseGradeModel>>(
+            configureCell: { (dataSource, tv, indexPath, item) in
+                let cell = tv.dequeueReusableCell(withIdentifier: "GPATableViewCell", for: indexPath) as! GPATableViewCell
+                
+                cell.courseTitle.text = item.courseTitle
+                cell.courseGrade.text = item.course_grade
+
+                var labels = [UILabel]()
+                for val in item.grades {
+                    let label = UILabel()
+                    label.font = UIFont(name: "Circular-Book", size: 13)
+                    
+                    let lowerBound = val.grade.indexOf(char: "(")! + 1
+                    let upperBound = val.grade.count - 2
+                    let extractedGradeString = val.grade[lowerBound...upperBound]
+                    
+                    label.text = "\(val.lam) : \(extractedGradeString)"
+                    
+                    labels.append(label)
+                }
+                
+                for val in cell.scoreStackView.arrangedSubviews {
+                    val.removeFromSuperview()
+                }
+                
+                for val in labels  {
+                    cell.scoreStackView.addArrangedSubview(val)
+                }
+                
+                return cell
+            }
+        )
+        
+        self.dataSource.titleForHeaderInSection = { dataSource, index in
+            return self.dataSource.sectionModels[index].model
+        }
     }
 
     func getGPA () {

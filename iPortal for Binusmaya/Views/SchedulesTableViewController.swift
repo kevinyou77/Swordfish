@@ -28,7 +28,7 @@ class SchedulesTableViewController: UITableViewController {
             cell.courseType.text = item.N_DELIVERY_MODE
             cell.classCampus.text = item.LOCATION
             cell.classSection.text = item.CLASS_SECTION
-            
+
             return cell
         }
     )
@@ -112,7 +112,6 @@ class SchedulesTableViewController: UITableViewController {
         )
         
         headerView.addSubview(dateLabel)
-        
         return headerView
     }
 
