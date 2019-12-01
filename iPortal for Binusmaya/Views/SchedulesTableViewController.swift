@@ -19,19 +19,6 @@ class SchedulesTableViewController: UITableViewController {
     var disposeBag = DisposeBag()
     var schedulesViewModel: SchedulesViewModel = SchedulesViewModel(dependencies: SchedulesViewModelDependencies())
     let rc: UIRefreshControl = UIRefreshControl()
-    var dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, CourseModel>>(
-        configureCell: { (dataSource, tv, indexPath, item) -> UITableViewCell in
-            let cell = tv.dequeueReusableCell(withIdentifier: "SchedulesTableViewCell", for: indexPath) as! SchedulesTableViewCell
-            cell.courseTitle.text = item.COURSE_TITLE_LONG
-            cell.courseRoom.text = item.ROOM
-            cell.courseStart.text = item.MEETING_TIME_START
-            cell.courseType.text = item.N_DELIVERY_MODE
-            cell.classCampus.text = item.LOCATION
-            cell.classSection.text = item.CLASS_SECTION
-
-            return cell
-        }
-    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,25 +56,25 @@ class SchedulesTableViewController: UITableViewController {
         self.tableView.dataSource = nil
         self.tableView.rowHeight = UITableView.automaticDimension
        
-        self.courses
+        self.schedulesViewModel.courses
             .asDriver()
-            .drive(self.tableView.rx.items(dataSource: dataSource))
+            .drive(self.tableView.rx.items(dataSource: self.schedulesViewModel.dataSource))
             .disposed(by: self.disposeBag)
         
         self.schedulesViewModel.getScheduleData { courses in
-            self.courses.accept(courses)
+            self.schedulesViewModel.courses.accept(courses)
         }
     }
     
     @objc func onRefresh (_ sender: Any) {
         self.schedulesViewModel.sync { event in
-            self.courses.accept(event)
+            self.schedulesViewModel.courses.accept(event)
             self.rc.endRefreshing()
         }
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let dateString = dataSource.sectionModels[section].model[0...10]
+        let dateString = self.schedulesViewModel.dataSource.sectionModels[section].model[0...10]
         
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd"

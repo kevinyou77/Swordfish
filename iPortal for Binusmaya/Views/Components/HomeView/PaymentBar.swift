@@ -14,55 +14,26 @@ protocol PaymentBarProtocol {
 
 class PaymentBar: PaymentBarProtocol {
     func render (
-        amount: Int,
+        amount: String,
         deadline: String
     ) -> ASLayoutSpec {
         let paymentBarIcon = ASImageNode()
         paymentBarIcon.image = UIImage(named: "mock-profile")
         
-        let paymentBarTitle = ASTextNode()
-        let paymentBarTitleAttribute: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: Colors.primaryColor,
-            NSAttributedString.Key.font: Fonts.headerFont
-        ]
-        paymentBarTitle.attributedText = NSAttributedString(
-            string: "Pembayaran",
-            attributes: paymentBarTitleAttribute
-        )
-        
         let paymentBarHeader = ASStackLayoutSpec()
         paymentBarHeader.direction = .horizontal
         
         paymentBarHeader.children = [
-            paymentBarTitle
+            self.paymentBarTitle()
         ]
-        
-        let paymentBarCellContentAmount = ASTextNode()
-        let paymentBarCellContentAmountAttribute: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: Fonts.headerFont,
-        ]
-        paymentBarCellContentAmount.attributedText = NSAttributedString(
-            string: "Rp6.500.000",
-            attributes: paymentBarCellContentAmountAttribute
-        )
-        
-        let paymentBarCellContentDeadline = ASTextNode()
-        let paymentBarCellContentDeadlineAttribute: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: Fonts.smallFont,
-            NSAttributedString.Key.foregroundColor : Colors.secondaryColor
-        ]
-        paymentBarCellContentDeadline.attributedText = NSAttributedString(
-            string: "tertagih besok",
-            attributes: paymentBarCellContentDeadlineAttribute
-        )
         
         let paymentBarCellContent = ASStackLayoutSpec()
         paymentBarCellContent.direction = .horizontal
         paymentBarCellContent.alignItems = .end
         paymentBarCellContent.spacing = 5
         paymentBarCellContent.children = [
-            paymentBarCellContentAmount,
-            paymentBarCellContentDeadline
+            self.amount(amount),
+            self.deadline(deadline)
         ]
         
         let paymentBarWrapper = ASStackLayoutSpec()
@@ -78,6 +49,48 @@ class PaymentBar: PaymentBarProtocol {
         paymentBarWrapperInset.child = paymentBarWrapper
         
         return paymentBarWrapperInset
+    }
+    
+    func paymentBarTitle () -> ASTextNode {
+        let paymentBarTitle = ASTextNode()
+        let paymentBarTitleAttribute: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: Colors.primaryColor,
+            NSAttributedString.Key.font: Fonts.headerFont
+        ]
+        paymentBarTitle.attributedText = NSAttributedString(
+            string: "Pembayaran",
+            attributes: paymentBarTitleAttribute
+        )
+        
+        return paymentBarTitle
+    }
+    
+    func amount (_ amount: String) -> ASTextNode {
+        let paymentBarCellContentAmount = ASTextNode()
+        let paymentBarCellContentAmountAttribute: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.font: Fonts.headerFont,
+        ]
+        paymentBarCellContentAmount.attributedText = NSAttributedString(
+            string: "Rp6.500.000",
+            attributes: paymentBarCellContentAmountAttribute
+        )
+        
+        return paymentBarCellContentAmount
+    }
+    
+    func deadline (_ deadline: String) -> ASTextNode {
+        let paymentBarCellContentDeadline = ASTextNode()
+        let paymentBarCellContentDeadlineAttribute: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.font: Fonts.smallFont,
+            NSAttributedString.Key.foregroundColor : Colors.secondaryColor
+        ]
+               
+        paymentBarCellContentDeadline.attributedText = NSAttributedString(
+            string: "tertagih besok",
+            attributes: paymentBarCellContentDeadlineAttribute
+        )
+        
+        return paymentBarCellContentDeadline
     }
 }
 

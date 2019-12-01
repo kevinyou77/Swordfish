@@ -19,10 +19,12 @@ protocol HomeViewComponentsProtocol {
 class HomeViewComponents: HomeViewComponentsProtocol {
     private var schedulesBar: SchedulesBar
     private var profileBar: ProfileBar
+    private var scoreInformationBar: ScoreInformationBar
     
     init () {
         self.schedulesBar = SchedulesBar()
         self.profileBar = ProfileBar()
+        self.scoreInformationBar = ScoreInformationBar()
     }
     
     func getTaskBar () -> ASLayoutSpec {
@@ -43,5 +45,9 @@ class HomeViewComponents: HomeViewComponentsProtocol {
     
     func getProfileBar () -> ASLayoutSpec {
         return self.profileBar.render()
+    }
+    
+    func getScoreInformationBar () -> ASLayoutSpec {
+        return self.scoreInformationBar.render()
     }
 }

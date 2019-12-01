@@ -19,7 +19,6 @@ class GPAViewController: UIViewController, UITableViewDelegate {
     let gpaViewModel = GPAViewModel(dependencies: GPAViewModelDependencies())
     let disposeBag = DisposeBag()
     let rc = UIRefreshControl()
-    var gradeModels =  BehaviorRelay<[SectionModel<String, CourseGradeModel>]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,36 +72,35 @@ class GPAViewController: UIViewController, UITableViewDelegate {
     
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-            headerView.backgroundColor = UIColor(red: CGFloat(247.0 / 255.0), green: CGFloat(247.0 / 255.0), blue: CGFloat(247.0 / 255.0), alpha: 1)
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        headerView.backgroundColor = UIColor(red: CGFloat(247.0 / 255.0), green: CGFloat(247.0 / 255.0), blue: CGFloat(247.0 / 255.0), alpha: 1)
 
-            let semesterLabel = UILabel()
-            semesterLabel.frame = CGRect.init(x: 20, y: 0, width: headerView.frame.width, height: headerView.center.y)
-            semesterLabel.font = semesterLabel.font.withSize(15)
-            semesterLabel.attributedText = NSAttributedString(
-                string: self.gpaViewModel.dataSource[section].model,
-                attributes: [
-                    NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)!
-                ]
-            )
+        let semesterLabel = UILabel()
+        semesterLabel.frame = CGRect.init(x: 20, y: 0, width: headerView.frame.width, height: headerView.center.y)
+        semesterLabel.font = semesterLabel.font.withSize(15)
+        semesterLabel.attributedText = NSAttributedString(
+            string: self.gpaViewModel.dataSource[section].model,
+            attributes: [
+                NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)!
+            ]
+        )
 
-            let averageGPA = UILabel()
-            averageGPA.textAlignment = .right
+        let averageGPA = UILabel()
+        averageGPA.textAlignment = .right
         
-            averageGPA.frame = CGRect.init(x: headerView.frame.midX - 20, y: 0, width: headerView.frame.midX, height: headerView.center.y)
+        averageGPA.frame = CGRect.init(x: headerView.frame.midX - 20, y: 0, width: headerView.frame.midX, height: headerView.center.y)
         
         let str = "Semester GPA: \(self.gpaViewModel.dataSource[section].items[section].GPA_CUR)"
-            averageGPA.attributedText = NSAttributedString(
-                string: str,
-                attributes: [
-                    NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)!
-                ]
-            )
+        averageGPA.attributedText = NSAttributedString(
+            string: str,
+            attributes: [
+                NSAttributedString.Key.font: UIFont(name: "Circular-Bold", size: 15)!
+            ]
+        )
 
-            headerView.addSubview(averageGPA)
-            headerView.addSubview(semesterLabel)
+        headerView.addSubview(averageGPA)
+        headerView.addSubview(semesterLabel)
 
-            return headerView
+        return headerView
     }
-
 }

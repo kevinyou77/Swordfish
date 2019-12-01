@@ -18,9 +18,14 @@ class SchedulesViewModel {
 
     let authInteractor: AuthInteractor
     let courseInteractor: CourseInteractor
-    let disposeBag: DisposeBag
-    var courses: [SectionModel<String,CourseModel>]
+
     let courseRepository: ScheduleRepository
+    
+    let dataSource: RxTableViewSectionedReloadDataSource<SectionModel<String, CourseModel>>
+    
+    var courses: BehaviorRelay<[SectionModel<String, CourseModel>]>
+    
+    let disposeBag: DisposeBag
     
     init (
         dependencies: Dependencies
@@ -28,7 +33,23 @@ class SchedulesViewModel {
         self.authInteractor = dependencies.authInteractor
         self.courseInteractor = dependencies.scheduleInteractor
         self.courseRepository = dependencies.scheduleRepository
-        self.courses = [SectionModel<String,CourseModel>]()
+        
+        self.courses = BehaviorRelay(value: [])
+
+        self.dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, CourseModel>>(
+            configureCell: { (dataSource, tv, indexPath, item) -> UITableViewCell in
+                let cell = tv.dequeueReusableCell(withIdentifier: "SchedulesTableViewCell", for: indexPath) as! SchedulesTableViewCell
+                cell.courseTitle.text = item.COURSE_TITLE_LONG
+                cell.courseRoom.text = item.ROOM
+                cell.courseStart.text = item.MEETING_TIME_START
+                cell.courseType.text = item.N_DELIVERY_MODE
+                cell.classCampus.text = item.LOCATION
+                cell.classSection.text = item.CLASS_SECTION
+
+                return cell
+            }
+        )
+        
         self.disposeBag = DisposeBag()
     }
     
@@ -64,7 +85,7 @@ class SchedulesViewModel {
                     }
                 }
                 .observeOn(MainScheduler.instance)
-                .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .utility))
+                .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInteractive))
                 .subscribe { event in
                     handler(self.scheduleSections())
                 }

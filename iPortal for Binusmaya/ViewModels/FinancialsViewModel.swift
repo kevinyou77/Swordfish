@@ -45,13 +45,12 @@ class FinancialsViewModel {
                 return self.financialInteractor.getAllFinancials(withCookie: newUser.cookie)
             }
             .observeOn(MainScheduler.instance)
-            .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .utility))
+            .subscribeOn(ConcurrentDispatchQueueScheduler.init(qos: .userInteractive))
             .subscribe(onNext: { [weak self] res in
                 guard let self = self else { return }
-
-                self.getFinancials { model in
-                    onDataReceived(model)
-                }
+                
+                let financials = self.financialInteractor.getFinancials()
+                onDataReceived(financials)
             }, onCompleted: {
                 print("hehe")
             })
