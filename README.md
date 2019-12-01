@@ -47,6 +47,7 @@ These are the classes on this application
 - **Network**, do everything network related here (HTTP requests etc.)
 - **Entities**, objects to store data from HTTP requests / Realm
 - **Interactor**, business logics are here, interactor does the heavy lifting for you before you go into ViewModels
+- **Dependencies**, Manual Dependency Injection using Protocols from [here](https://swiftwithmajid.com/2019/03/06/dependency-injection-in-swift-with-protocols/)
 
 If you wanted to know your realm db location, just check the console. I’ve printed it out for you. 
 
