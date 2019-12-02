@@ -20,11 +20,13 @@ class HomeViewComponents: HomeViewComponentsProtocol {
     private var schedulesBar: SchedulesBar
     private var profileBar: ProfileBar
     private var scoreInformationBar: ScoreInformationBar
+    private var paymentBar: PaymentBar
     
     init () {
         self.schedulesBar = SchedulesBar()
         self.profileBar = ProfileBar()
         self.scoreInformationBar = ScoreInformationBar()
+        self.paymentBar = PaymentBar()
     }
     
     func getTaskBar () -> ASLayoutSpec {
@@ -36,7 +38,7 @@ class HomeViewComponents: HomeViewComponentsProtocol {
     }
     
     func getPaymentBar () -> ASLayoutSpec {
-        return paymentBar()
+        return self.paymentBar.render()
     }
     
     func getScheduleBar () -> ASLayoutSpec {

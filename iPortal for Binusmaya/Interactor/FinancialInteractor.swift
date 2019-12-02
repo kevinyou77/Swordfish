@@ -46,6 +46,6 @@ public class FinancialInteractor {
     }
     
     func getFinancials () -> [FinancialModel] {
-        return self.financialRepository.getFinancials()
+        self.financialRepository.getFinancials()
     }
 }

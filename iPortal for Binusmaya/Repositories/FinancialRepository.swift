@@ -41,4 +41,17 @@ public class FinancialRepository {
                 .sorted(byKeyPath: "due_dt", ascending: false)
                 .toArray()
     }
+    
+    func getUpcomingFinancials () -> [FinancialModel] {
+        let allFinancials = self.getFinancials()
+        
+        return allFinancials.filter { financial in
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+
+            let date = dateFormatter.date(from: financial.due_dt[0...9])
+            
+            return date!.timeIntervalSince1970 > Date().timeIntervalSince1970
+        }
+    }
 }
