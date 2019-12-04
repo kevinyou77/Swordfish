@@ -21,7 +21,7 @@ public class AuthInteractor {
     ) {
         self.userRepository = userRepository
     }
-    
+
     func constructLoginFormModel(username: String, password: String) -> Observable<Bool> {
         var formData = [String:String]()
         var phpSessId = ""

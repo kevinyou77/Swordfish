@@ -62,9 +62,8 @@ public class GradeRepository {
 
     func getGrades (by term: String) -> [CourseGradeModel] {
         let realm = try! Realm()
-        return realm
-                .objects(CourseGradeModel.self)
-                .filter("strm contains '\(term)'")
-                .toArray()
+        return realm.objects(CourseGradeModel.self)
+                    .filter("strm contains '\(term)'")
+                    .toArray()
     }
 }

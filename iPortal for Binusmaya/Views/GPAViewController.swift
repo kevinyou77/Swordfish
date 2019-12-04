@@ -65,7 +65,7 @@ class GPAViewController: UIViewController, UITableViewDelegate {
         self.gpaViewModel.getGPA()
         
         self.gpaViewModel.gradeModels
-            .asDriver()
+            .asDriver(onErrorJustReturn: [])
             .drive(self.gpaTableView.rx.items(dataSource: self.gpaViewModel.dataSource))
             .disposed(by: self.disposeBag)
     }
