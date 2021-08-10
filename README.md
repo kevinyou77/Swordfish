@@ -5,6 +5,8 @@ A no BS Bimay client for iOS
 
 [**APP DEMO**](https://youtu.be/794d-_V5VeQ)
 
+## ** This project is no longer maintained **
+
 ## **What’s this?**
 
 A college companion app for Binus University students. You can see your upcoming schedules, GPAs, and billing information in this app.
@@ -15,7 +17,7 @@ This is a THIRD PARTY app, developed INDEPENDENTLY from Binus University, by int
 
 ## **A bit of a backstory**
 
-This project is inspired by [**Portal for BinusMaya**](https://github.com/chrsep/Kingfish), which I’ve used extensively from class to class. At the time I was amazed. How can an individual develop an app that precisely know what the student wants, great looking UI, and most importantly, while being much more better than the official BinusMaya app, which is probably developed by a team.  Even when Binus relaunched their mobile app, it couldn’t dethrone Portal, that’s just how good it is. I always wanted to know where my money went to be honest. Oh and, their API design gives me nightmares.
+This project is inspired by [**Portal for BinusMaya**](https://github.com/chrsep/Kingfish), which I’ve used extensively from class to class. At the time I was amazed. How can an individual develop an app that precisely know what the student wants, great looking UI.
 
 This project started as one of my fun side projects as I’m learning Swift and I wanted to put my knowledge to use.
 Note that this application is built in about 17 days, **there will be bugs (lots of it), the codebase is still pretty messy.** I decided to open-source this application because I’m on my final year and I should be working on my thesis. Not that I’m abandoning this project, I will continue develop this app in the future, just that I’m shifting my priorities right now.
